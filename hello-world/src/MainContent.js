@@ -11,10 +11,10 @@ const MainContent = (props) => {
     const [isLoaded, setIsLoaded] = useState(0);
     const selection = [0, 1, 2];
     const [lamps, setLamps] = useState([
-        { id: 1, title: "Title here", backimage: "lamp1.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-        { id: 2, title: "Title here", backimage: "lamp1.png", items: 0, prop1: true, prop2: "red, green", type: 1 },
-        { id: 3, title: "Title here", backimage: "lamp1.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-        { id: 4, title: "Title here", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1 },
+        { id: 1, title: "Bamboo & Straw", backimage: "lamp3.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
+        { id: 2, title: "Elegance", backimage: "lamp4.png", items: 0, prop1: true, prop2: "red, green", type: 1 },
+        { id: 3, title: "Alien UFO", backimage: "lamp5.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
+        { id: 4, title: "One-legged tuna", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1 },
         { id: 5, title: "Black quartz", backimage: "lamp2.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 }
     ]);
     const[slideIndex, setSlideIndex] = useState(1);
