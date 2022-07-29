@@ -1,0 +1,42 @@
+@import './import';
+
+.FullCanvas {
+    //background-color: pink;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .arrow{
+        width: 60px;
+        height: 60px;
+        background: url("./Artsystuff/arrow.png") no-repeat center;
+        border-radius: 50%;
+        background-size:contain;
+        background-origin: content-box;
+        padding: 10px;
+        position:absolute;
+        top:4vw;
+        left:4vw;
+        z-index:4;
+        background-color: map-get($colors, "lightest");
+        @include shadowPreset;
+        transition: transform 0.5s ease-out;
+        &:hover{
+            cursor: pointer;
+            @include coloredShadowPreset;
+            transform: rotate(15deg);
+        }
+    }
+
+    img {
+        display: none;
+    }
+    canvas {
+        //background-color: blue;
+        //border:2px solid blue;
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        background-color: map-get($colors, "soft");
+    }
+}

@@ -1,0 +1,41 @@
+@import './variables';
+
+@mixin particle-tingz {
+    position:absolute;
+    @include flex-center();
+    width: 15px;
+    height: 15px;
+    z-index: 1;
+    box-shadow: 0 0 25px 10px map-get($colors, "accent"), 0 0 30px 15px map-get($colors, "lightest");
+    background-color: map-get($colors, "lightest");
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+@mixin trail-tingz {
+    @include particle-tingz();
+    box-shadow: 0 0 25px 7px map-get($colors, "accent"), 0 0 30px 6px map-get($colors, "lightest");
+    width: 2px;
+    height: 2px;
+    animation: fade 1s;
+    top:0;
+    left:0;
+}
+
+@mixin shadowPreset {
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+@mixin borderPreset {
+  border:2px solid map-get($colors, "accent");
+}
+
+@mixin coloredShadowPreset{
+  box-shadow: 0px 0px 10px rgba(map-get($colors, "accent"), 0.3),0px 0px 4px rgba(map-get($colors, "accent"), 0.5),0px 0px 2px rgba(0,0,0,0.2);
+}
+
+@mixin fullPage {
+  width: 100%;
+    height: 100vh;
+    position: relative;
+}
