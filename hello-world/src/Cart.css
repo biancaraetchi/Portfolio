@@ -1,0 +1,31 @@
+.Cart {
+  position: relative;
+  display: block;
+  padding: 30px;
+  float: right;
+  right: -14vw;
+  top: 80px;
+  background-image: url("./Artsystuff/cart.png");
+  background-size: 3rem 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1), -2px -2px 7px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.1s;
+}
+.Cart:hover {
+  background-color: #fffeee;
+}
+.Cart .items {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 4;
+  color: #FCF306;
+  top: -15px;
+  right: 5px;
+  font-size: 3vh;
+  text-shadow: 0px 0px 1px rgb(0, 0, 0), 0 0 5px rgba(252, 243, 6, 0.6);
+}/*# sourceMappingURL=Cart.css.map */

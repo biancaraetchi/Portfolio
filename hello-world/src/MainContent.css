@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@-webkit-keyframes yellowShine {
+  0% {
+    top: -350;
+  }
+  100% {
+    top: 350px;
+  }
+}
+@keyframes yellowShine {
+  0% {
+    top: -350;
+  }
+  100% {
+    top: 350px;
+  }
+}
+:root {
+  --width-size: 300px;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
+  position: relative;
+}
+.container canvas {
+  box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1) inset, -3px 0px 10px rgba(0, 0, 0, 0.1) inset;
+  width: inherit;
+  height: inherit;
+  min-height: 0;
+  background-color: rgb(255, 254, 238);
+}
+.container .mainContent {
+  width: inherit;
+  height: inherit;
+  border-left: 3px solid #FCF306;
+  border-right: 3px solid #FCF306;
+  padding-bottom: 100px;
+}
+.container .mainContent .gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  row-gap: 100px;
+  width: inherit;
+  height: auto;
+}
+.container .mainContent .gallery .card {
+  display: block;
+  width: var(--width-size);
+}
+.container .mainContent .gallery .card .text {
+  padding: 7px;
+  padding-top: 15px;
+  padding-bottom: none;
+  color: black;
+  line-height: 1.8;
+}
+.container .mainContent .gallery .card .text h3 {
+  font-size: 1.5rem;
+}
+.container .mainContent .gallery .card .text .wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  position: relative;
+}
+.container .mainContent .gallery .card .text .wrap ul {
+  font-size: 1rem;
+  cursor: default;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon {
+  position: relative;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon:hover {
+  cursor: pointer;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .items {
+  display: none;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 1;
+  color: #FCF306;
+  top: -20px;
+  right: 5px;
+  font-size: 3vh;
+  text-shadow: 0px 0px 1px rgb(0, 0, 0), 0 0 5px rgba(252, 243, 6, 0.6);
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .cartButton {
+  cursor: pointer;
+  width: 8vh;
+  height: 7vh;
+  padding: 0.5vh;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px 15px 0px 0px;
+  background: url("./Artsystuff/cart.png") no-repeat center;
+  background-size: contain;
+  background-origin: content-box;
+  transition: background-color 0.2s;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .cartButton:hover {
+  background-color: #fffeee;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .cartButton,
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus {
+  position: relative;
+  left: 4vh;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus {
+  border: none;
+  display: flex;
+  height: 2.5vh;
+  width: 8vh;
+  position: relative;
+  margin-top: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .minusSpan,
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .plusSpan {
+  color: rgb(139, 139, 139);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: inherit;
+  font-size: 1.3rem;
+  height: inherit;
+  padding: 0;
+  transition: background-image 0.1s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .minusSpan:hover .plusMinus,
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .plusSpan:hover .plusMinus {
+  box-shadow: 0px 0px 10px rgba(252, 243, 6, 0.3), 0px 0px 4px rgba(252, 243, 6, 0.5), 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .minusSpan:hover {
+  border-radius: 15px;
+  background-image: linear-gradient(to right, rgb(255, 254, 238), transparent);
+}
+.container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus .plusSpan:hover {
+  border-radius: 15px;
+  background-image: linear-gradient(to right, transparent, rgb(255, 254, 238));
+}
+.container .mainContent .gallery .card .lamp {
+  width: var(--width-size);
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto var(--width-size);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.container .mainContent .gallery .card:hover .lamp {
+  border: 1px solid #FCF306;
+  box-shadow: -3px 5px 10px rgba(0, 0, 0, 0.2), 3px -5px 10px rgba(0, 0, 0, 0.2);
+}
+.container .mainContent .gallery .card:hover .lamp::before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  background-image: linear-gradient(-15deg, transparent 40%, #FCF306 50%, transparent 60%);
+  position: absolute;
+  display: block;
+  border-radius: inherit;
+  opacity: 0.1;
+  top: -350px;
+  -webkit-animation: yellowShine 0.9s ease-out;
+          animation: yellowShine 0.9s ease-out;
+}
+.container .mainContent .choose {
+  width: inherit;
+  height: 250px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+.container .mainContent .choose h2 {
+  font-weight: 400;
+  font-size: 2rem;
+}
+.container .mainContent .choose .slide {
+  margin-left: 3vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.container .mainContent .choose .slide img {
+  display: block;
+  width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 10%;
+  border: 1px solid rgba(252, 243, 6, 0.3);
+  box-shadow: 5px 5px 15px rgba(252, 243, 6, 0.3), -5px -5px 15px rgba(252, 243, 6, 0.3);
+}
+.container .mainContent .choose .slide button {
+  padding: 0;
+  margin: 30px;
+  height: 26.5px;
+  width: 20px;
+  border: none;
+  background-color: transparent;
+  transform: scale(0.7);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container .mainContent .choose .slide button#left {
+  background-image: url("./Artsystuff/Path 2.png");
+}
+.container .mainContent .choose .slide button#right {
+  background-image: url("./Artsystuff/Path 3.png");
+}
+.container .mainContent .choose .slide button:hover {
+  opacity: 0.75;
+}/*# sourceMappingURL=MainContent.css.map */
