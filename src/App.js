@@ -130,10 +130,10 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/Portfolio/" element={<Fullpage lamps={lamps} floatingParticles={floatingParticles} />} />
-          <Route path="/login" element={<FullCanvas url={"/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<FullCanvas url={"/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
-          <Route path="/cart" element={<CartPage lamps={lamps}/>}></Route>
+          <Route path="/Portfolio/login" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
+          <Route path="/Portfolio/about" element={<About />} />
+          <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
+          <Route path="/Portfolio/cart" element={<CartPage lamps={lamps}/>}></Route>
         </Routes>
       </Router>
     </div>
