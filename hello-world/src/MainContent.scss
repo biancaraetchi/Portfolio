@@ -49,7 +49,7 @@
             height: auto;
 
             .card {
-                display: block;
+                display: none;
                 width: var(--width-size);
 
                 .text {
@@ -231,8 +231,9 @@
 
                 img {
                     display: block;
-                    height: 200px;
                     width: 200px;
+                    height:200px;
+                    object-fit: contain;
                     border-radius: 10%;
                     border: 1px solid rgba(map-get($colors, "accent"), 0.3);
                     box-shadow: 5px 5px 15px rgba(map-get($colors, "accent"), 0.3), -5px -5px 15px rgba(map-get($colors, "accent"), 0.3);

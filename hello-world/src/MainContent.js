@@ -3,20 +3,14 @@ import './MainContent.css';
 import image from './Artsystuff/lamp1.png';
 import image2 from './Artsystuff/lamp2.png';
 import image0 from './Artsystuff/all_text.png';
+import image3 from './Artsystuff/lamp7.png';
 import { Link } from 'react-router-dom';
 
 
 const MainContent = (props) => {
     const [images, setImages] = useState([]);
     const [isLoaded, setIsLoaded] = useState(0);
-    const selection = [0, 1, 2];
-    const [lamps, setLamps] = useState([
-        { id: 1, title: "Bamboo & Straw", backimage: "lamp3.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-        { id: 2, title: "Elegance", backimage: "lamp4.png", items: 0, prop1: true, prop2: "red, green", type: 1 },
-        { id: 3, title: "Alien UFO", backimage: "lamp5.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-        { id: 4, title: "One-legged tuna", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1 },
-        { id: 5, title: "Black quartz", backimage: "lamp2.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 }
-    ]);
+    const selection = [0, 1, 2, 3];
     const[slideIndex, setSlideIndex] = useState(1);
 
     useEffect(() => {
@@ -25,7 +19,7 @@ const MainContent = (props) => {
     }, [slideIndex]);
 
     const addItems = (number) => {
-        lamps[number - 1].items += 1;
+        props.lamps[number - 1].items += 1;
         props.setTotalItems(1);
         let string = "#postCart" + number;
         let string2 = "#postItems" + number;
@@ -40,11 +34,11 @@ const MainContent = (props) => {
     }
 
     const removeItems = (number) => {
-        if (lamps[number - 1].items !== 0) {
-            lamps[number - 1].items -= 1;
+        if (props.lamps[number - 1].items !== 0) {
+            props.lamps[number - 1].items -= 1;
             props.setTotalItems(-1);
         }
-        if (lamps[number - 1].items === 0) {
+        if (props.lamps[number - 1].items === 0) {
             let string = "#postCart" + number;
             let string2 = "#postItems" + number;
             let icon = document.querySelector(string);
@@ -91,12 +85,12 @@ const MainContent = (props) => {
                     <img src={image0} alt="All lamps" className="lampImg" />
                     <img className='lampImg' src={image} alt="Floor lamps" />
                     <img className='lampImg' src={image2} alt="Table lamps" />
+                    <img src={image3} alt="Wall lamps" className="lampImg" />
                     <button id="right" onClick={() => plusDivs(1)}></button>
                 </div>
             </div>
             <div className="gallery">
-                {lamps.map((lamp) => {
-                    let counter = 0;
+                {props.lamps.map((lamp) => {
                     let cardDisplay = {display:"none"};
                     let chooseDisplay = {display:"none"};
                     let passProp1 = true;
@@ -118,7 +112,6 @@ const MainContent = (props) => {
 
                     if ((lamp.type === selection[slideIndex-1] || slideIndex === 1) && passProp1 && passProp2){
                         cardDisplay.display = "block";
-                        counter++;
                     }
                     return (
                         <div key={lamp.id} style={cardDisplay}>

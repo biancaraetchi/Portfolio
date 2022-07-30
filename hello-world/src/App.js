@@ -6,9 +6,21 @@ import About from './About';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './Signup';
 import FullCanvas from './FullCanvas';
+import CartPage from './CartPage';
+import {useState} from 'react';
 
 function App() {
-  function floatingParticles(canvasName, particleNr, ifColor, ifBig) {
+  const [lamps, setLamps] = useState([
+    { id: 1, title: "Bamboo & Straw", backimage: "lamp3.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
+    { id: 2, title: "Elegance", backimage: "lamp4.png", items: 0, prop1: true, prop2: "red, green", type: 1 },
+    { id: 3, title: "UFO", backimage: "lamp5.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
+    { id: 4, title: "One-Legged Tuna", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1 },
+    { id: 5, title: "Black Quartz", backimage: "lamp2.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 },
+    { id: 6, title: "Porcupine Class", backimage: "lamp6.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 },
+    { id: 7, title: "The Chaperone", backimage: "lamp7.png", items: 0, prop1: false, prop2: "black, red, green", type: 3 },
+]);
+
+  function floatingParticles(setChangedURL, canvasName, particleNr, ifColor, ifBig) {
     var canvas = document.getElementById(canvasName);
     canvas.style.width = "100%";
     canvas.style.height = "100%";
@@ -33,17 +45,21 @@ function App() {
     }
 
     Particle.prototype.draw = function () {
-      ctx.width = canvas.width;
-      ctx.height = canvas.height;
-      let nuance;
-      if (this.color === 1) {
-        nuance = document.getElementById("whiteImage");
+      try {
+        ctx.width = canvas.width;
+        ctx.height = canvas.height;
+        let nuance;
+        if (this.color === 1) {
+          nuance = document.getElementById("whiteImage");
+        }
+        else if (this.color == 0) {
+          nuance = document.getElementById("yellowImage");
+        }
+        ctx.globalAlpha = this.opacity;
+        ctx.drawImage(nuance, this.x, this.y, this.size, this.size);
+      } catch (error) {
+        setChangedURL(1);
       }
-      else if (this.color == 0) {
-        nuance = document.getElementById("yellowImage");
-      }
-      ctx.globalAlpha = this.opacity;
-      ctx.drawImage(nuance, this.x, this.y, this.size, this.size);
     }
 
     Particle.prototype.update = function () {
@@ -113,10 +129,11 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Fullpage floatingParticles={floatingParticles} />} />
-          <Route path="/login" element={<FullCanvas  url = {"/"} floatingParticles={floatingParticles}><Login/> </FullCanvas>} />
+          <Route exact path="/" element={<Fullpage lamps={lamps} floatingParticles={floatingParticles} />} />
+          <Route path="/login" element={<FullCanvas url={"/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
           <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<FullCanvas url = {"/login"} floatingParticles={floatingParticles}><Signup/> </FullCanvas>}/>
+          <Route path="/signup" element={<FullCanvas url={"/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
+          <Route path="/cart" element={<CartPage lamps={lamps}/>}></Route>
         </Routes>
       </Router>
     </div>

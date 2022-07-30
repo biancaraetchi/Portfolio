@@ -6,6 +6,7 @@ import yellowSparkle from './Artsystuff/yellowSparkle.png';
 const Welcome = (props) => {
     const [X, setX] = useState(0);
     const [Y, setY] = useState(0);
+    const [changedURL, setChangedURL] = useState(0);
     var [number, setNumber] = useState(0);
 
     const handleHover = (e) => {
@@ -37,7 +38,7 @@ const Welcome = (props) => {
         }, 100);
     }
 
-    useEffect(() => props.floatingParticles("myCanvas", 50, 1, 1), []);
+    useEffect(() => props.floatingParticles(setChangedURL, "myCanvas", 50, 1, 1), []);
 
     
     return (

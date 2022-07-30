@@ -1,13 +1,14 @@
 import whiteSparkle from './Artsystuff/whiteSparkle.png';
 import yellowSparkle from './Artsystuff/yellowSparkle.png';
 import{Link} from 'react-router-dom';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './FullCanvas.css';
 
 const FullCanvas = (props) => {
+    const [changedURL, setChangedURL] = useState(0);
     var particleNr = 125;
     useEffect(() => {
-        props.floatingParticles("myCanvas", particleNr, 1, 0);
+        props.floatingParticles(setChangedURL, "myCanvas", particleNr, 1, 0);
     }, []);
 
     return ( 

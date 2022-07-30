@@ -204,8 +204,10 @@
 }
 .container .mainContent .choose .slide img {
   display: block;
-  height: 200px;
   width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 10%;
   border: 1px solid rgba(252, 243, 6, 0.3);
   box-shadow: 5px 5px 15px rgba(252, 243, 6, 0.3), -5px -5px 15px rgba(252, 243, 6, 0.3);

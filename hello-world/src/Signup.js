@@ -14,12 +14,12 @@ const Signup = () => {
                         <input required pattern="[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" type="text" id="email" />
                     </div>
                     <div className="line">
-                        <label htmlFor="password">Password:</label>
-                        <input required minLength="8" type="password" id="password" />
+                        <label htmlFor="passwordSignUp">Password:</label>
+                        <input required minLength="8" type="password" id="passwordSignUp" />
                     </div>
                     <div className="line">
-                        <label htmlFor="password">Confirm password:</label>
-                        <input required minLength="8" type="password" id="password" />
+                        <label htmlFor="passwordConfSignUp">Confirm password:</label>
+                        <input required minLength="8" type="password" id="passwordConfSignUp" />
                     </div>
                     <div className="submit-wrapper">
                         <input type="submit" id='submit' value="Log in"></input>
