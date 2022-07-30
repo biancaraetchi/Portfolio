@@ -129,7 +129,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/Portfolio" element={<Fullpage lamps={lamps} floatingParticles={floatingParticles} />} />
+          <Route exact path="/Portfolio/" element={<Fullpage lamps={lamps} floatingParticles={floatingParticles} />} />
           <Route path="/login" element={<FullCanvas url={"/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<FullCanvas url={"/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
