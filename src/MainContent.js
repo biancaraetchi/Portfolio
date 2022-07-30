@@ -127,7 +127,7 @@ const MainContent = (props) => {
                                         <li>Colors available: {lamp.prop2}</li>
                                     </ul>
                                     <div className="cartIcon">
-                                        <Link to="/cart" >
+                                        <Link to="/Portfolio/cart" >
                                             <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
                                                 <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
 

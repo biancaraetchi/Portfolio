@@ -9,7 +9,7 @@ const Cart = (props) => {
     }, [])
 
     return (
-        <Link to="/cart">
+        <Link to="/Portfolio/cart">
             <div className="Cart" id="Cart">
                 <div className="items" id="items">{props.totalItems}</div>
             </div>
