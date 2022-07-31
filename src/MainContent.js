@@ -139,7 +139,7 @@ const MainContent = (props) => {
                                             <span className="plusSpan" id={'plus' + lamp.id} onClick={() => addItems(lamp.id)}>+</span>
                                         </div>
                                         <div className="price">
-                                        <span className="underline">€{lamp.price}</span>
+                                        <span className="underline">€{lamp.price.toFixed(2)}</span>
                                         </div>
                                     </div>
                                 </div>

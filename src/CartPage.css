@@ -1,0 +1,32 @@
+.cartContainer {
+  display: flex;
+}
+.cartContainer .listItemsInCart {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+.cartContainer .listItemsInCart .cartText {
+  width: 60%;
+  height: 100%;
+  border: 1px solid olive;
+}
+.cartContainer .listItemsInCart .cartText h4 {
+  font-style: italic;
+  font-weight: 500;
+}
+.cartContainer .listItemsInCart .smallImage {
+  display: block;
+  border: 1px solid red;
+  width: 30%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.cartContainer .checkout {
+  width: 35%;
+  margin-left: 5vw;
+  border: 1px solid orange;
+}/*# sourceMappingURL=CartPage.css.map */

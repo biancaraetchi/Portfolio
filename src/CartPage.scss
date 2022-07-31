@@ -1,0 +1,33 @@
+@import "./import";
+
+.cartContainer {
+    display: flex;
+    .listItemsInCart {
+        display: flex;
+        width:100%;
+        height: 150px;
+        border-radius: 15px;
+        @include shadowPreset;
+        .cartText{
+            width:60%;
+            height:100%;
+            border:1px solid olive;
+            h4{
+                font-style: italic;
+                font-weight: 500;
+            }
+        }
+        .smallImage {
+            display: block;
+            border: 1px solid red;
+            width: 30%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .checkout{
+        width:35%;
+        margin-left:5vw;
+        border:1px solid orange;
+    }
+}

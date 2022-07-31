@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 const Cart = (props) => {
     useEffect(() => {
         var items = document.getElementById("items");
-        items.style.display = "none";
+        if(props.totalItems === 0){
+            items.style.display = "none";
+        }
     }, [])
 
     return (
