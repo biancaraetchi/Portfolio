@@ -12,6 +12,10 @@
   font-family: inherit;
 }
 
+span.colored{
+  color:map-get($colors, "accent");
+}
+
 .App{
   footer{
     display: block;

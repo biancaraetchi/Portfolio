@@ -7,18 +7,20 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signup from './Signup';
 import FullCanvas from './FullCanvas';
 import CartPage from './CartPage';
-import {useState} from 'react';
+import { useState } from 'react';
 
 function App() {
   const [lamps, setLamps] = useState([
-    { id: 1, title: "Bamboo & Straw", backimage: "lamp3.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-    { id: 2, title: "Elegance", backimage: "lamp4.png", items: 0, prop1: true, prop2: "red, green", type: 1 },
-    { id: 3, title: "UFO", backimage: "lamp5.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1 },
-    { id: 4, title: "One-Legged Tuna", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1 },
-    { id: 5, title: "Black Quartz", backimage: "lamp2.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 },
-    { id: 6, title: "Porcupine Class", backimage: "lamp6.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2 },
-    { id: 7, title: "The Chaperone", backimage: "lamp7.png", items: 0, prop1: false, prop2: "black, red, green", type: 3 },
-]);
+    { id: 1, title: "Bamboo & Straw", backimage: "lamp3.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1, price: 59.99 },
+    { id: 2, title: "Elegance", backimage: "lamp4.png", items: 0, prop1: true, prop2: "red, green", type: 1, price: 89.69 },
+    { id: 3, title: "UFO", backimage: "lamp5.png", items: 0, prop1: true, prop2: "red, blue, green", type: 1, price: 27.45 },
+    { id: 4, title: "One-Legged Tuna", backimage: "lamp1.png", items: 0, prop1: false, prop2: "red, blue, orange", type: 1, price: 34.56 },
+    { id: 5, title: "Black Quartz", backimage: "lamp2.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2, price: 24.34 },
+    { id: 6, title: "Porcupine Class", backimage: "lamp6.png", items: 0, prop1: false, prop2: "black, blue, orange", type: 2, price: 67.30 },
+    { id: 7, title: "The Chaperone", backimage: "lamp7.png", items: 0, prop1: false, prop2: "black, red, green", type: 3, price: 78.21 },
+  ]);
+  const [totalItems, setTotalItems] = useState(0);
+
 
   function floatingParticles(setChangedURL, canvasName, particleNr, ifColor, ifBig) {
     var canvas = document.getElementById(canvasName);
@@ -129,11 +131,11 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/" element={<Fullpage lamps={lamps} floatingParticles={floatingParticles} />} />
-          <Route path="/login" element={<FullCanvas url={"/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<FullCanvas url={"/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
-          <Route path="/cart" element={<CartPage lamps={lamps}/>}></Route>
+          <Route exact path="/Portfolio/" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles} />} />
+          <Route path="/Portfolio/login" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
+          <Route path="/Portfolio/about" element={<About />} />
+          <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
+          <Route path="/Portfolio/cart" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><CartPage lamps={lamps} /></FullCanvas>}></Route>
         </Routes>
       </Router>
     </div>

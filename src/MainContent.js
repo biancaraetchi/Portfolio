@@ -113,6 +113,7 @@ const MainContent = (props) => {
                     if ((lamp.type === selection[slideIndex-1] || slideIndex === 1) && passProp1 && passProp2){
                         cardDisplay.display = "block";
                     }
+                    
                     return (
                         <div key={lamp.id} style={cardDisplay}>
                         {
@@ -127,7 +128,7 @@ const MainContent = (props) => {
                                         <li>Colors available: {lamp.prop2}</li>
                                     </ul>
                                     <div className="cartIcon">
-                                        <Link to="/cart" >
+                                        <Link to="/Portfolio/cart" >
                                             <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
                                                 <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
 
@@ -136,6 +137,9 @@ const MainContent = (props) => {
                                         <div className="plusMinus">
                                             <span className='minusSpan' id={'minus' + lamp.id} onClick={() => removeItems(lamp.id)}>−</span>
                                             <span className="plusSpan" id={'plus' + lamp.id} onClick={() => addItems(lamp.id)}>+</span>
+                                        </div>
+                                        <div className="price">
+                                        <span className="underline">€{lamp.price.toFixed(2)}</span>
                                         </div>
                                     </div>
                                 </div>

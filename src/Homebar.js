@@ -23,8 +23,8 @@ const Homebar = (props) => {
         <div className="Homebar">
             <i className="icon" id="hamburgerMenu" onClick={rotateMenu}></i>
             <ul>
-                <li><Link to='/about'>About</Link></li>
-                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/Portfolio/about'>About</Link></li>
+                <li><Link to='/Portfolio/login'>Login</Link></li>
             </ul>
             <Cart totalItems={props.totalItems} />
             <Sidebar filterValues={props.filterValues} rotation={rotation} />

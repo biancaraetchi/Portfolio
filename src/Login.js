@@ -23,7 +23,7 @@ const Login = (props) => {
                         </div>
                     </form>
                     <div className="noAccount">
-                        <Link to="/signup">No account yet? <span className='underline'>Sign up now</span></Link>
+                        <Link to="/Portfolio/signup">No account yet? <span className='underline'>Sign up now</span></Link>
                     </div>
                 </div>
             </div>
