@@ -12,7 +12,7 @@
 }
 
 :root {
-    --width-size: 20vw;
+    --width-size: 300px;
 }
 
 .container {
@@ -41,7 +41,7 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-items: center;
             align-items: center;
             row-gap: 100px;
