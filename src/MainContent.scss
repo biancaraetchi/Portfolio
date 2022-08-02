@@ -55,9 +55,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-items: center;
             align-items: center;
-
+            padding:0 20px;
             row-gap: 5vw;
-            //column-gap: 5vh;
+            column-gap: 5vh;
             width: 100%;
             height: auto;
 
