@@ -7,7 +7,7 @@ a{
 }
 
 .Homebar{
-    //border: 1px solid black;
+    width: 100%;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     height: $bar-height;
@@ -17,6 +17,10 @@ a{
     background-color: map-get($colors, "lightest");
     border-radius: 0 0 15px 15px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    font-size: 1.5rem;
+    @media (max-width:400px){
+        font-size: 1.3rem;
+    }
     .icon{
         background-image: url('./Artsystuff/Hamburger\ menu.png');
         background-size: 2.6rem 1.8rem;
@@ -41,11 +45,11 @@ a{
         list-style-type: none;
         display: flex;
         align-items: center;
-        font-size: 1.5rem;
         font-weight:800;
+        
         li {
             padding: 1.3rem;
-            //border: 1px solid pink;
+            
             a{
                 color:black;
                 background-image: linear-gradient(black, black);

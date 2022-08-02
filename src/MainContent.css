@@ -28,6 +28,11 @@
   grid-template-rows: max-content;
   position: relative;
 }
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
 .container canvas {
   box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.1) inset, -3px 0px 10px rgba(0, 0, 0, 0.1) inset;
   width: inherit;
@@ -35,12 +40,22 @@
   min-height: 0;
   background-color: rgb(255, 254, 238);
 }
+@media (max-width: 600px) {
+  .container canvas {
+    display: none;
+  }
+}
 .container .mainContent {
-  width: inherit;
+  width: 100%;
   height: inherit;
   border-left: 3px solid #FCF306;
   border-right: 3px solid #FCF306;
   padding-bottom: 100px;
+}
+@media (max-width: 600px) {
+  .container .mainContent {
+    padding-top: 30px;
+  }
 }
 .container .mainContent .gallery {
   display: grid;
@@ -48,18 +63,20 @@
   justify-items: center;
   align-items: center;
   row-gap: 5vw;
-  width: inherit;
+  width: 100%;
   height: auto;
+  margin: 0 15px;
+}
+@media (max-width: 800px) {
+  .container .mainContent .gallery {
+    margin: 0;
+  }
 }
 .container .mainContent .gallery .card {
   display: block;
-  width: var(--width-size);
-}
-.container .mainContent .gallery .card:nth-child(3n+1) {
-  margin-left: 3vw;
-}
-.container .mainContent .gallery .card:nth-child(3n) {
-  margin-right: 3vw;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .container .mainContent .gallery .card .text {
   padding: 7px;
@@ -83,6 +100,8 @@
 .container .mainContent .gallery .card .text .wrap .cartIcon {
   position: relative;
   font-size: 1.3rem;
+  display: grid;
+  justify-items: center;
 }
 .container .mainContent .gallery .card .text .wrap .cartIcon:hover {
   cursor: pointer;
@@ -100,8 +119,7 @@
   text-shadow: 0px 0px 1px rgb(0, 0, 0), 0 0 5px rgba(252, 243, 6, 0.6);
 }
 .container .mainContent .gallery .card .text .wrap .cartIcon .price {
-  float: right;
-  padding-right: 1.5vh;
+  width: inherit;
   font-size: 1.1rem;
 }
 .container .mainContent .gallery .card .text .wrap .cartIcon .cartButton {
@@ -122,7 +140,6 @@
 .container .mainContent .gallery .card .text .wrap .cartIcon .cartButton,
 .container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus {
   position: relative;
-  left: 4vh;
 }
 .container .mainContent .gallery .card .text .wrap .cartIcon .plusMinus {
   border: none;
