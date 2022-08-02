@@ -11,7 +11,7 @@ const MainContent = (props) => {
     const [images, setImages] = useState([]);
     const [isLoaded, setIsLoaded] = useState(0);
     const selection = [0, 1, 2, 3];
-    const[slideIndex, setSlideIndex] = useState(1);
+    const [slideIndex, setSlideIndex] = useState(1);
 
     useEffect(() => {
         setImages(document.getElementsByClassName('lampImg'));
@@ -58,7 +58,7 @@ const MainContent = (props) => {
 
     function plusDivs(n) {
         setSlideIndex(slideIndex + n);
-        showImage(slideIndex+n);
+        showImage(slideIndex + n);
     }
 
     function showImage(x) {
@@ -91,61 +91,63 @@ const MainContent = (props) => {
             </div>
             <div className="gallery">
                 {props.lamps.map((lamp) => {
-                    let cardDisplay = {display:"none"};
-                    let chooseDisplay = {display:"none"};
+                    let cardDisplay = { display: "none" };
+                    let chooseDisplay = { display: "none" };
                     let passProp1 = true;
                     let passProp2 = true;
-                    let chooseBox = {boxShadow:"2px 2px 7px rgba(0,0,0,0.1), -2px -2px 7px rgba(0,0,0,0.1)"};
-                    
-                    if(lamp.items !== 0){
+                    let chooseBox = { boxShadow: "2px 2px 7px rgba(0,0,0,0.1), -2px -2px 7px rgba(0,0,0,0.1)" };
+
+                    if (lamp.items !== 0) {
                         chooseDisplay.display = "block";
                         chooseBox.boxShadow = "2px 2px 7px rgba(252, 243, 6, 0.2), -2px -2px 7px rgba(252, 243, 6, 0.2), 0px 0px 2px rgba(0,0,0,0.2)";
                     }
 
-                    if(props.filterValues[0] && !lamp.prop1){
+                    if (props.filterValues[0] && !lamp.prop1) {
                         passProp1 = false;
                     }
 
-                    if(props.filterValues[1] && !lamp.prop2.includes(props.filterValues[2])){
+                    if (props.filterValues[1] && !lamp.prop2.includes(props.filterValues[2])) {
                         passProp2 = false;
                     }
 
-                    if ((lamp.type === selection[slideIndex-1] || slideIndex === 1) && passProp1 && passProp2){
+                    if ((lamp.type === selection[slideIndex - 1] || slideIndex === 1) && passProp1 && passProp2) {
                         cardDisplay.display = "block";
                     }
-                    
+
                     return (
                         <div key={lamp.id} style={cardDisplay}>
-                        {
-                        <div className="card">
-                            <div className="lamp" style={{ backgroundImage: `url('${lamp.backimage}')` }}></div>
-                            <div className="text">
-                                <h3>{lamp.title}</h3>
-                                <br />
-                                <div className="wrap">
-                                    <ul>
-                                        {lamp.prop1 ? <li>LED</li> : <li>Not LED</li>}
-                                        <li>Colors available: {lamp.prop2}</li>
-                                    </ul>
-                                    <div className="cartIcon">
-                                        <Link to="/Portfolio/cart" >
-                                            <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
-                                                <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
+                            {
+                                <div className="card">
+                                    <div className="filler">
+                                        <div className="lamp" style={{ backgroundImage: `url('${lamp.backimage}')` }}></div>
+                                    </div>
+                                    <div className="text">
+                                        <h3>{lamp.title}</h3>
+                                        <br />
+                                        <div className="wrap">
+                                            <ul>
+                                                {lamp.prop1 ? <li>LED</li> : <li>Not LED</li>}
+                                                <li>Colors available: {lamp.prop2}</li>
+                                            </ul>
+                                            <div className="cartIcon">
+                                                <Link to="/Portfolio/cart" >
+                                                    <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
+                                                        <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
 
+                                                    </div>
+                                                </Link>
+                                                <div className="plusMinus">
+                                                    <span className='minusSpan' id={'minus' + lamp.id} onClick={() => removeItems(lamp.id)}>−</span>
+                                                    <span className="plusSpan" id={'plus' + lamp.id} onClick={() => addItems(lamp.id)}>+</span>
+                                                </div>
+                                                <div className="price">
+                                                    <span className="underline">€{lamp.price.toFixed(2)}</span>
+                                                </div>
                                             </div>
-                                        </Link>
-                                        <div className="plusMinus">
-                                            <span className='minusSpan' id={'minus' + lamp.id} onClick={() => removeItems(lamp.id)}>−</span>
-                                            <span className="plusSpan" id={'plus' + lamp.id} onClick={() => addItems(lamp.id)}>+</span>
-                                        </div>
-                                        <div className="price">
-                                        <span className="underline">€{lamp.price.toFixed(2)}</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                       }
+                            }
                         </div>);
                 })}
             </div>

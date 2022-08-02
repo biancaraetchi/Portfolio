@@ -45,25 +45,25 @@
         border-left: 3px solid map-get($colors, "accent");
         border-right: 3px solid map-get($colors, "accent");
         padding-bottom: 100px;
-        @media (max-width:600px){
-            padding-top:30px;
+
+        @media (max-width:600px) {
+            padding-top: 30px;
         }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-items: center;
             align-items: center;
+
             row-gap: 5vw;
             //column-gap: 5vh;
             width: 100%;
             height: auto;
 
-            margin: 0 15px;
-            @media (max-width:800px){
-                margin:0;
-            }
             .card {
-                display: block;
+                display: grid;
+                grid-template-columns: auto;
                 width: fit-content;
 
                 .text {
@@ -78,13 +78,16 @@
                     }
 
                     .wrap {
-                        display: grid;
-                        grid-template-columns: 2fr 1fr;
+                        // display: grid;
+                        // grid-template-columns: 2fr 1fr;
+                        display: flex;
                         position: relative;
 
                         ul {
                             font-size: 1rem;
                             cursor: default;
+                            margin-right: 20px;
+                            list-style-position: inside;
                         }
 
                         .cartIcon {
@@ -92,6 +95,7 @@
                             font-size: 1.3rem;
                             display: grid;
                             justify-items: center;
+
                             &:hover {
                                 cursor: pointer;
                             }
@@ -192,18 +196,22 @@
                     }
                 }
 
-                .lamp {
-                    width: var(--width-size);
-                    height: 300px;
-                    //style={{ backgroundImage: `url('${lamp.backimage}')` 
-                    //background-image: url('./Artsystuff/lamp1.png');
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: auto var(--width-size);
-                    border-radius: 15px;
-                    position: relative;
-                    overflow: hidden;
-                    cursor: pointer;
+                .filler {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    .lamp {
+                        width: var(--width-size);
+                        height: 300px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: auto var(--width-size);
+                        border-radius: 15px;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                    }
+
                 }
 
                 &:hover {
