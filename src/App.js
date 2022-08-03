@@ -48,8 +48,6 @@ function App() {
 
     Particle.prototype.draw = function () {
       try {
-        ctx.width = canvas.width;
-        ctx.height = canvas.height;
         let nuance;
         if (this.color === 1) {
           nuance = document.getElementById("whiteImage");
@@ -118,12 +116,19 @@ function App() {
     init();
     animate();
     window.addEventListener('resize', function () {
-      canvas.width = window.innerWidth;
-      canvas.height = window.height;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particleArray.length; i++) {
-        particleArray[i].draw();
-      }
+        let parent = canvas.parentElement;
+        console.log(parent.clientWidth, " - ", canvasName);
+        canvas.height = parent.clientHeight;
+        if (!canvasName.includes("myCanvas")) {
+          canvas.width = parent.clientWidth / 8;
+        }
+        else {
+          canvas.width = parent.clientWidth;
+        }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particleArray.length; i++) {
+          particleArray[i].draw();
+        }
     })
   }
 

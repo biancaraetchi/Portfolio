@@ -130,12 +130,10 @@ const MainContent = (props) => {
                                                 <li>Colors available: {lamp.prop2}</li>
                                             </ul>
                                             <div className="cartIcon">
-                                                <Link to="/Portfolio/cart" >
-                                                    <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
-                                                        <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
+                                                <div className="cartButton" style={chooseBox} id={'postCart' + lamp.id}>
+                                                    <div className="items" style={chooseDisplay} id={"postItems" + lamp.id}>{lamp.items}</div>
 
-                                                    </div>
-                                                </Link>
+                                                </div>
                                                 <div className="plusMinus">
                                                     <span className='minusSpan' id={'minus' + lamp.id} onClick={() => removeItems(lamp.id)}>−</span>
                                                     <span className="plusSpan" id={'plus' + lamp.id} onClick={() => addItems(lamp.id)}>+</span>

@@ -36,6 +36,11 @@ a {
   top: 11px;
   transition: transform 0.1s ease-in-out;
 }
+@media (max-width: 400px) {
+  .Homebar .icon {
+    background-size: 2.2rem 1.3rem;
+  }
+}
 .Homebar .icon:hover {
   cursor: pointer;
 }

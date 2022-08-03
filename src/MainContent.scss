@@ -17,14 +17,13 @@
 
 .container {
     width: 100%;
-    height: auto;
     display: grid;
     grid-template-columns: 1fr 6fr 1fr;
-    grid-template-rows: max-content;
+    grid-auto-rows:min-content;
     position: relative;
 
     @media (max-width:600px) {
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
     }
 
     canvas {
@@ -41,7 +40,7 @@
 
     .mainContent {
         width: 100%;
-        height: inherit;
+        height:max-content;
         border-left: 3px solid map-get($colors, "accent");
         border-right: 3px solid map-get($colors, "accent");
         padding-bottom: 100px;
@@ -55,9 +54,9 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-items: center;
             align-items: center;
-
+            padding:0 20px;
             row-gap: 5vw;
-            //column-gap: 5vh;
+            column-gap: 5vh;
             width: 100%;
             height: auto;
 

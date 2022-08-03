@@ -10,7 +10,7 @@ const Sidebar = (props) => {
         if (props.rotation == 1) {
             bar.style.left = "0px";
         } else {
-            bar.style.left = "-300px";
+            bar.style.left = "-310px";
         }
     })
 
