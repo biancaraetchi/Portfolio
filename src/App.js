@@ -48,8 +48,6 @@ function App() {
 
     Particle.prototype.draw = function () {
       try {
-        ctx.width = canvas.width;
-        ctx.height = canvas.height;
         let nuance;
         if (this.color === 1) {
           nuance = document.getElementById("whiteImage");
@@ -118,8 +116,8 @@ function App() {
     init();
     animate();
     window.addEventListener('resize', function () {
-      canvas.width = window.innerWidth;
-      canvas.height = window.height;
+      canvas.height = canvas.clientHeight;
+    canvas.width = canvas.height * (canvas.clientWidth / canvas.clientHeight);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < particleArray.length; i++) {
         particleArray[i].draw();
