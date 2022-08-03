@@ -24,6 +24,9 @@ a{
     .icon{
         background-image: url('./Artsystuff/Hamburger\ menu.png');
         background-size: 2.6rem 1.8rem;
+        @media (max-width:400px){
+            background-size: 2.2rem 1.3rem;
+        }
         background-repeat: no-repeat;
         background-position: center;
         width:68px;

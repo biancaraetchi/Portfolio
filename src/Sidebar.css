@@ -14,10 +14,25 @@
   border-left: 0;
   padding: 10px;
 }
+@media (max-width: 400px) {
+  .Sidebar {
+    width: 200px;
+  }
+}
 .Sidebar h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   width: 100%;
+  padding-left: 0;
+  font-size: 1.4rem;
+  float: left;
+  position: relative;
+  bottom: 20px;
+}
+@media (max-width: 400px) {
+  .Sidebar h3 {
+    font-size: 1.1rem;
+  }
 }
 .Sidebar form {
   display: flex;
@@ -25,6 +40,12 @@
   width: 100%;
   justify-content: left;
   padding: 5px 10px;
+  font-size: 1.2rem;
+}
+@media (max-width: 400px) {
+  .Sidebar form {
+    font-size: 0.9rem;
+  }
 }
 .Sidebar form:last-child {
   justify-content: center;
@@ -90,6 +111,11 @@
   font-size: 1rem;
   font-family: inherit;
   font-weight: 500;
+}
+@media (max-width: 400px) {
+  #filter {
+    font-size: 0.8rem;
+  }
 }
 #filter:hover {
   cursor: pointer;

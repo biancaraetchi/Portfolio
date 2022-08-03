@@ -20,6 +20,9 @@ h1 {
   color: map-get($colors, "lightest");
   font-size: 5rem;
   text-align: center;
+  @media (max-width:400px){
+    font-size:4rem;
+  }
 }
 
 @mixin flex-center {
