@@ -11,6 +11,7 @@ const CartPage = (props) => {
                 <div className="allCart">
                     <div className="allItems">
                         <h3>The following items are in your cart:</h3>
+ 
                         {props.lamps.map((lamp) => {
                             let ifDisplayed = { display: "none" };
                             if (lamp.items !== 0) {
@@ -20,17 +21,22 @@ const CartPage = (props) => {
                             return (
                                 <div className="item" key={lamp.id} style={ifDisplayed}>
                                     <div className="image">
-                                        <img src={lamp.backimage} alt="f" />
-
+                                        <img src={"./"+lamp.backimage} alt="f" />
                                     </div>
                                     <div className="text">
-
-                                    </div>
+                                        <h4>{lamp.title}</h4>
+                                        <ul>
+                                            {lamp.prop1 ? <li>LED</li> : <li>Not LED</li>}
+                                            <li>Colors available: {lamp.prop2}</li>
+                                        </ul>
+                                        <p>Price: €{lamp.price} x {lamp.items} = €{lamp.price * lamp.items}</p>                                    </div>
                                 </div>
                             )
                         })}
                     </div>
-                    <div className="totalCheckout"></div>
+                    <div className="totalCheckout">
+                        <h2>Total to checkout:</h2>
+                    </div>
                 </div>
             </div>
         </div>

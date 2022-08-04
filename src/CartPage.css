@@ -3,25 +3,36 @@
   width: 100%;
   display: grid;
   grid-template-columns: 3fr 1.5fr;
-  border: 1px solid pink;
-}
-.allCart .allItems {
-  border: 1px solid slateblue;
+  font-size: 1.2rem;
 }
 .allCart .allItems .item {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid blue;
-  height: 150px;
+  min-height: 150px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  margin: 20px 0;
 }
 .allCart .allItems .item .image {
-  border: 1px solid saddlebrown;
   width: 20%;
 }
 .allCart .allItems .item .image img {
-  width: 50px;
-  height: 50px;
+  display: block;
+  width: 100%;
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-  border: 1px solid green;
+}
+.allCart .allItems .item .text {
+  padding: 15px;
+}
+.allCart .allItems .item .text h4 {
+  font-weight: 500;
+}
+.allCart .allItems .item .text ul {
+  list-style-position: inside;
+}
+.allCart .totalCheckout {
+  font-size: 1.5em;
+  padding: 0 30px;
 }/*# sourceMappingURL=CartPage.css.map */
