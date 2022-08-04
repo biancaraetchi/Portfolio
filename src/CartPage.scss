@@ -1,33 +1,28 @@
 @import "./import";
 
-.cartContainer {
-    display: flex;
-    .listItemsInCart {
-        display: flex;
-        width:100%;
-        height: 150px;
-        border-radius: 15px;
-        @include shadowPreset;
-        .cartText{
-            width:60%;
-            height:100%;
-            border:1px solid olive;
-            h4{
-                font-style: italic;
-                font-weight: 500;
+.allCart{
+    height: 100%;
+    width:100%;
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    border:1px solid pink;
+    .allItems{
+        border:1px solid slateblue;
+        .item{
+            display: flex;
+            flex-wrap: wrap;
+            border:1px solid blue;
+            height:150px;
+            .image{
+                border:1px solid saddlebrown;
+                width:20%;
+                img{
+                    width:50px;
+                    height:50px;
+                    object-fit: contain;
+                    border:1px solid green;
+                }
             }
         }
-        .smallImage {
-            display: block;
-            border: 1px solid red;
-            width: 30%;
-            height: 100%;
-            object-fit: contain;
-        }
-    }
-    .checkout{
-        width:35%;
-        margin-left:5vw;
-        border:1px solid orange;
     }
 }

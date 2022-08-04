@@ -26,8 +26,8 @@
   padding-left: 0;
   font-size: 1.4rem;
   float: left;
-  position: relative;
-  bottom: 20px;
+  position: absolute;
+  top: 10px;
 }
 @media (max-width: 400px) {
   .Sidebar h3 {
