@@ -1,32 +1,38 @@
-.cartContainer {
-  display: flex;
-}
-.cartContainer .listItemsInCart {
-  display: flex;
-  width: 100%;
-  height: 150px;
-  border-radius: 15px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-}
-.cartContainer .listItemsInCart .cartText {
-  width: 60%;
+.allCart {
   height: 100%;
-  border: 1px solid olive;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  font-size: 1.2rem;
 }
-.cartContainer .listItemsInCart .cartText h4 {
-  font-style: italic;
-  font-weight: 500;
+.allCart .allItems .item {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 150px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  margin: 20px 0;
 }
-.cartContainer .listItemsInCart .smallImage {
+.allCart .allItems .item .image {
+  width: 20%;
+}
+.allCart .allItems .item .image img {
   display: block;
-  border: 1px solid red;
-  width: 30%;
+  width: 100%;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.cartContainer .checkout {
-  width: 35%;
-  margin-left: 5vw;
-  border: 1px solid orange;
+.allCart .allItems .item .text {
+  padding: 15px;
+}
+.allCart .allItems .item .text h4 {
+  font-weight: 500;
+}
+.allCart .allItems .item .text ul {
+  list-style-position: inside;
+}
+.allCart .totalCheckout {
+  font-size: 1.5em;
+  padding: 0 30px;
 }/*# sourceMappingURL=CartPage.css.map */

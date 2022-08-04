@@ -8,30 +8,35 @@ const CartPage = (props) => {
     return (
         <div className="flexWrapper">
             <div className="formBlock">
-                <img src="./Artsystuff/lamp2.png" alt="oops" />
-                <h3>The following items are in your cart:</h3>
-                <div className="cartContainer">
-                    {props.lamps.map((lamp) => {
-                        let chooseIfDisplay = { display: "block" };
-                        if (lamp.items === 0) {
-                            chooseIfDisplay.display = "none";
-                        }
-                        return (
-                            <div className="listItemsInCart" key={lamp.id} style={chooseIfDisplay}>
-                                <img src={lamp.backimage} alt={lamp.title} className="smallImage" />
-                                <div className="cartText">
-                                    <h4>{lamp.title}</h4>
-                                    <ul>
-                                        {lamp.prop1 ? <li>LED</li> : <li>Not LED</li>}
-                                        <li>{lamp.prop2}</li>
-                                    </ul>
-                                    <b>{lamp.items} x €{lamp.price} = €{lamp.items*lamp.price}</b>
+                <div className="allCart">
+                    <div className="allItems">
+                        <h3>The following items are in your cart:</h3>
+ 
+                        {props.lamps.map((lamp) => {
+                            let ifDisplayed = { display: "none" };
+                            if (lamp.items !== 0) {
+                                ifDisplayed.display = "flex";
+                            }
+
+                            return (
+                                <div className="item" key={lamp.id} style={ifDisplayed}>
+                                    <div className="image">
+                                        <img src={"./"+lamp.backimage} alt="f" />
+                                    </div>
+                                    <div className="text">
+                                        <h4>{lamp.title}</h4>
+                                        <ul>
+                                            {lamp.prop1 ? <li>LED</li> : <li>Not LED</li>}
+                                            <li>Colors available: {lamp.prop2}</li>
+                                        </ul>
+                                        <p>Price: €{lamp.price} x {lamp.items} = €{lamp.price * lamp.items}</p>                                    </div>
                                 </div>
-                            </div>)
-                    })}
-                    <div className="checkout">
-                        <h4>Total to checkout:</h4>
-                    </div> 
+                            )
+                        })}
+                    </div>
+                    <div className="totalCheckout">
+                        <h2>Total to checkout:</h2>
+                    </div>
                 </div>
             </div>
         </div>
