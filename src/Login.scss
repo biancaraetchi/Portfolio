@@ -21,6 +21,7 @@
         height: auto;
         width: 100vw;
         padding: 50px;
+        padding-bottom:10px;
         @include shadowPreset;
         border-radius: 15px;
         background-color: map-get($colors, "lightest");
@@ -45,6 +46,7 @@
 
         label {
             padding-right: 15px;
+            flex-basis:100px;
         }
 
         input {
@@ -53,6 +55,9 @@
             font-size: 1rem;
             box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
             border: none;
+            @media(max-width:400px){
+                width:100%;
+            }
 
             &:focus-visible {
                 outline: none;
@@ -63,15 +68,18 @@
         }
 
         .line {
-            display: block;
+            display: flex;
+            align-items: center;
             margin: 20px 0px;
+                flex-basis:100px;
         }
 
         .noAccount {
             color: black;
             font-size: 0.9rem;
-            position: absolute;
-            bottom: 50px;
+            @media (max-width:400px){
+                padding-top:30px;
+            }
 
             &:hover {
                 opacity: 0.8;

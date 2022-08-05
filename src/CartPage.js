@@ -15,9 +15,8 @@ const CartPage = (props) => {
             <div className="formBlock">
                 <div className="allCart">
                     <div className="allItems">
-                        <h3>The following items are in your cart:</h3>
-
-                        {props.lamps.map((lamp) => {
+                        {total !== 0 ? <h3>The following items are in your cart:</h3> : <h3>You have no items in your cart.</h3>}
+                        {total !== 0 && props.lamps.map((lamp) => {
                             return (
                                 lamp.items !== 0 && <div className="item" key={lamp.id} >
                                     <div className="image">
@@ -46,7 +45,7 @@ const CartPage = (props) => {
                         </ul>
                         <p>Total to pay: <span className="underline">€{total.toFixed(2)}</span></p>
                         <div className="flex-wrapper">
-                        <Link to="/Portfolio/payment"><button>Proceed to payment</button></Link>
+                        {total !== 0 && <Link to="/Portfolio/payment"><button>Proceed to payment</button></Link>}
                         </div>
                     </div>
                 </div>
