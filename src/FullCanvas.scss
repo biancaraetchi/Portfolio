@@ -1,11 +1,10 @@
 @import './import';
 
 .FullCanvas {
-    //background-color: pink;
     width: 100%;
+    min-height: 100vh;
     height: 100%;
     position: relative;
-
     .arrow{
         width: 60px;
         height: 60px;
@@ -32,8 +31,6 @@
         display: none;
     }
     canvas {
-        //background-color: blue;
-        //border:2px solid blue;
         width: inherit;
         height: inherit;
         position: absolute;

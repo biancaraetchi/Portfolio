@@ -7,16 +7,19 @@
 .flexWrapper {
     width: inherit;
     height: inherit;
+    min-height: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
-    //background-color: firebrick;
     z-index: 3;
     position: relative;
-
+    padding:calc(4vw + 60px);
+    @media (max-width:400px){
+        padding:calc(4vw + 60px) 30px;
+    }
     .formBlock {
         height: auto;
-        width: 80vw;
+        width: 100vw;
         padding: 50px;
         @include shadowPreset;
         border-radius: 15px;
@@ -25,6 +28,9 @@
         font-size: 1.2rem;
         line-height: 2rem;
         position: relative;
+        @media (max-width:400px){
+            padding:15px;
+        }
 
         .withMargin {
             margin-bottom: 40px;
