@@ -8,6 +8,7 @@ import Signup from './Signup';
 import FullCanvas from './FullCanvas';
 import CartPage from './CartPage';
 import { useState } from 'react';
+import Payment from './Payment';
 
 function App() {
   const [lamps, setLamps] = useState([
@@ -141,6 +142,7 @@ function App() {
           <Route path="/Portfolio/about" element={<About />} />
           <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
           <Route path="/Portfolio/cart" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><CartPage lamps={lamps} /></FullCanvas>}></Route>
+          <Route path="/Portfolio/payment" element={<FullCanvas url={"/Portfolio/cart"} floatingParticles={floatingParticles}><Payment/></FullCanvas>}></Route>
         </Routes>
       </Router>
     </div>

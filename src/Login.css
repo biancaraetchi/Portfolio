@@ -1,16 +1,24 @@
 .flexWrapper {
   width: inherit;
   height: inherit;
+  min-height: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 3;
   position: relative;
+  padding: calc(4vw + 60px);
+}
+@media (max-width: 400px) {
+  .flexWrapper {
+    padding: calc(4vw + 60px) 30px;
+  }
 }
 .flexWrapper .formBlock {
   height: auto;
-  width: 80vw;
+  width: 100vw;
   padding: 50px;
+  padding-bottom: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   background-color: #ffffff;
@@ -18,6 +26,11 @@
   font-size: 1.2rem;
   line-height: 2rem;
   position: relative;
+}
+@media (max-width: 400px) {
+  .flexWrapper .formBlock {
+    padding: 15px;
+  }
 }
 .flexWrapper .formBlock .withMargin {
   margin-bottom: 40px;
@@ -30,6 +43,7 @@
 }
 .flexWrapper .formBlock label {
   padding-right: 15px;
+  flex-basis: 100px;
 }
 .flexWrapper .formBlock input {
   width: 30vh;
@@ -38,19 +52,29 @@
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
   border: none;
 }
+@media (max-width: 400px) {
+  .flexWrapper .formBlock input {
+    width: 100%;
+  }
+}
 .flexWrapper .formBlock input:focus-visible {
   outline: none;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(252, 243, 6, 0.5);
 }
 .flexWrapper .formBlock .line {
-  display: block;
+  display: flex;
+  align-items: center;
   margin: 20px 0px;
+  flex-basis: 100px;
 }
 .flexWrapper .formBlock .noAccount {
   color: black;
   font-size: 0.9rem;
-  position: absolute;
-  bottom: 50px;
+}
+@media (max-width: 400px) {
+  .flexWrapper .formBlock .noAccount {
+    padding-top: 30px;
+  }
 }
 .flexWrapper .formBlock .noAccount:hover {
   opacity: 0.8;
