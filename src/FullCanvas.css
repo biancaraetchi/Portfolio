@@ -1,3 +1,19 @@
+@-webkit-keyframes snap {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+}
+@keyframes snap {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+}
 .FullCanvas {
   width: 100%;
   min-height: 100vh;
@@ -18,12 +34,12 @@
   z-index: 4;
   background-color: #ffffff;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.5s ease-out;
 }
 .FullCanvas .arrow:hover {
   cursor: pointer;
   box-shadow: 0px 0px 10px rgba(252, 243, 6, 0.3), 0px 0px 4px rgba(252, 243, 6, 0.5), 0px 0px 2px rgba(0, 0, 0, 0.2);
-  transform: rotate(15deg);
+  -webkit-animation: snap 0.8s ease-out;
+          animation: snap 0.8s ease-out;
 }
 .FullCanvas img {
   display: none;
