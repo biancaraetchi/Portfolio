@@ -1,0 +1,79 @@
+@import './import';
+
+@keyframes pulsingLoad{
+    0%, 100%{
+        width:90%;
+        filter: hue-rotate(300deg);
+    }
+    25%, 75%{
+        filter: hue-rotate(180deg);
+    }
+    50%{
+        width:50%;
+        filter: hue-rotate(90deg);
+    }
+}
+
+@keyframes disappearance{
+    0%, 100%{
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+}
+
+.Payment{
+    width:150px;
+    height:150px;
+    position:relative;
+    z-index: 2;
+    &::before{
+        content:'';
+        width:inherit;
+        height:inherit;
+        position:absolute;
+        z-index:3;
+        border-radius: 50%;
+        background: radial-gradient(rgba(234, 177, 177,0.2), rgba(198, 155, 244, 0.2));
+    }
+    .image{
+        width:100%;
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width:inherit;
+            height:auto;
+            display: block;
+            object-fit: contain;
+            position:relative;
+            z-index:4;
+            animation: pulsingLoad 3s infinite ease-in-out;
+        }
+    }
+    .loading{
+        font-size:1.2rem;
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+        letter-spacing: 5px;
+        display: flex;
+        .dot{
+            display: block;
+            animation: disappearance 1.5s infinite;
+            &:nth-child(3){
+                animation-delay: 0.3s;
+            }
+            &:nth-child(4){
+                animation-delay: 0.5s;
+            }
+        }
+    }
+
+}
+.unfortunateMessage{
+    position: absolute;
+    bottom:10px;
+}
