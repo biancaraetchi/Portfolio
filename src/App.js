@@ -9,6 +9,7 @@ import FullCanvas from './FullCanvas';
 import CartPage from './CartPage';
 import { useState } from 'react';
 import Payment from './Payment';
+import { useEffect } from 'react';
 
 function App() {
   const [lamps, setLamps] = useState([
@@ -118,7 +119,6 @@ function App() {
     animate();
     window.addEventListener('resize', function () {
         let parent = canvas.parentElement;
-        console.log(parent.clientWidth, " - ", canvasName);
         canvas.height = parent.clientHeight;
         if (!canvasName.includes("myCanvas")) {
           canvas.width = parent.clientWidth / 8;
@@ -132,6 +132,9 @@ function App() {
         }
     })
   }
+  useEffect(()=>{
+
+  },[])
 
   return (
     <div className="App">
