@@ -15,8 +15,19 @@ const Fullpage = (props) => {
     var particleNr = 50;
 
     useEffect(() => {
-            props.floatingParticles(setChangedURL,"canvas1", particleNr, 0, 0);
-            props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
+        let container = document.getElementsByClassName("container")[0];
+        let observer = new ResizeObserver((entries) => {
+            let element = entries[0];
+            container.style.height = element.contentRect.height+100 + "px";
+            container.style.overflow = "hidden";
+            console.log(element.contentRect);
+            console.log(container.style.height);
+
+        })
+        let mainContent = document.getElementsByClassName("mainContent");
+        observer.observe(mainContent[0]);
+        props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
+        props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
     }, [changedURL]);
 
     return (
