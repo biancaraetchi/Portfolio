@@ -20,9 +20,6 @@ const Fullpage = (props) => {
             let element = entries[0];
             container.style.height = element.contentRect.height+100 + "px";
             container.style.overflow = "hidden";
-            console.log(element.contentRect);
-            console.log(container.style.height);
-
         })
         let mainContent = document.getElementsByClassName("mainContent");
         observer.observe(mainContent[0]);

@@ -10,6 +10,7 @@ import CartPage from './CartPage';
 import { useState } from 'react';
 import Payment from './Payment';
 import { useEffect } from 'react';
+import { isVisible } from '@testing-library/user-event/dist/utils';
 
 function App() {
   const [lamps, setLamps] = useState([
@@ -133,7 +134,13 @@ function App() {
     })
   }
   useEffect(()=>{
-
+    var intersectionObserver = new IntersectionObserver((entries) =>{
+      for(let i = 0; i < entries.length; i++){
+        entries[i].target.classList.add("animate");
+      }
+    }, {threshold: 0});
+    var element = document.querySelector("#firstH1");
+    intersectionObserver.observe(element);
   },[])
 
   return (
