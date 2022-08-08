@@ -49,7 +49,7 @@ const Welcome = (props) => {
                 <div className="leftover"></div>
             </div>
             <div className="background">
-                <h1 className="title2">Welcome to <span className='color'>Lamps</span></h1>
+                <h1 className="title2" id='firstH1'>Welcome to <span className='color'>Lamps</span></h1>
                 <div className="content">
                     <h1 className="title">Welcome to <span className='color'>Lamps</span></h1>
                 </div>
