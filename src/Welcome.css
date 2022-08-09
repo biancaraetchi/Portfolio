@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
-@font-face {
-  font-family: "Montserrat";
-  src: url("./Artsystuff/Montserrat-ExtraLight.ttf") format("ttf");
-  font-weight: 200;
-}
 @-webkit-keyframes moveUp {
   0% {
     top: 50px;
@@ -24,9 +19,14 @@
     opacity: 1;
   }
 }
+@font-face {
+  font-family: "Montserrat";
+  src: url("./Artsystuff/Montserrat-ExtraLight.ttf") format("ttf");
+  font-weight: 200;
+}
 .animate {
-  -webkit-animation: moveUp 0.7s ease-out;
-          animation: moveUp 0.7s ease-out;
+  -webkit-animation: moveUp 1.5s ease-out;
+          animation: moveUp 1.5s ease-out;
 }
 
 a {
@@ -34,6 +34,7 @@ a {
 }
 
 h1 {
+  opacity: 1;
   color: #ffffff;
   font-size: 5rem;
   text-align: center;
