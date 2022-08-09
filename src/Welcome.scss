@@ -1,5 +1,4 @@
-@import "variables";
-@import "./commonmixins";
+@import "./import";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
 
 @font-face {
@@ -8,14 +7,10 @@
   font-weight: 200;
 }
 
-@keyframes moveUp {
-  0%{top:50px;
-  opacity:0.2;}
-  100%{top:0px; opacity: 1;}
-}
+
 
 .animate {
-  animation:moveUp 0.7s ease-out;
+  animation:moveUp 1.5s ease-out;
 }
 
 a {
@@ -23,6 +18,7 @@ a {
 }
 
 h1 {
+  opacity:1;
   color: map-get($colors, "lightest");
   font-size: 5rem;
   text-align: center;

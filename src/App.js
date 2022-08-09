@@ -119,29 +119,44 @@ function App() {
     init();
     animate();
     window.addEventListener('resize', function () {
-        let parent = canvas.parentElement;
-        canvas.height = parent.clientHeight;
-        if (!canvasName.includes("myCanvas")) {
-          canvas.width = parent.clientWidth / 8;
-        }
-        else {
-          canvas.width = parent.clientWidth;
-        }
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particleArray.length; i++) {
-          particleArray[i].draw();
-        }
+      let parent = canvas.parentElement;
+      canvas.height = parent.clientHeight;
+      if (!canvasName.includes("myCanvas")) {
+        canvas.width = parent.clientWidth / 8;
+      }
+      else {
+        canvas.width = parent.clientWidth;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particleArray.length; i++) {
+        particleArray[i].draw();
+      }
     })
   }
-  useEffect(()=>{
-    var intersectionObserver = new IntersectionObserver((entries) =>{
-      for(let i = 0; i < entries.length; i++){
-        entries[i].target.classList.add("animate");
-      }
-    }, {threshold: 0});
+  useEffect(() => {
+    var intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          console.log(entry.target);
+        }
+      })
+    }, { threshold: 0 });
+    var toObserve = [];
     var element = document.querySelector("#firstH1");
-    intersectionObserver.observe(element);
-  },[])
+    var element2 = document.getElementsByClassName("mainContent")[0];
+    var formElements = document.querySelectorAll(".formBlock");
+    if (element !== null && typeof (element) !== 'undefined') {
+      toObserve.push(element);
+    }
+    if (element2 !== null && typeof (element2) !== 'undefined') {
+      toObserve.push(element2);
+    }
+    if (toObserve.length !== 0) {
+      [].map.call(toObserve, el => intersectionObserver.observe(el));
+    }
+    [].map.call(formElements, el => intersectionObserver.observe(el));
+  }, [])
 
   return (
     <div className="App">
@@ -152,7 +167,7 @@ function App() {
           <Route path="/Portfolio/about" element={<About />} />
           <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
           <Route path="/Portfolio/cart" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><CartPage lamps={lamps} /></FullCanvas>}></Route>
-          <Route path="/Portfolio/payment" element={<FullCanvas url={"/Portfolio/cart"} floatingParticles={floatingParticles}><Payment/></FullCanvas>}></Route>
+          <Route path="/Portfolio/payment" element={<FullCanvas url={"/Portfolio/cart"} floatingParticles={floatingParticles}><Payment /></FullCanvas>}></Route>
         </Routes>
       </Router>
     </div>
