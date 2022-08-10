@@ -29,10 +29,20 @@ function App() {
     var canvas = document.getElementById(canvasName);
     canvas.style.width = "100%";
     canvas.style.height = "100%";
-    canvas.height = canvas.clientHeight;
-    canvas.width = canvas.height * (canvas.clientWidth / canvas.clientHeight);
+    correctSize(canvas);
     var ctx = canvas.getContext("2d");
     let particleArray;
+
+    function correctSize(canvas){
+      let parent = canvas.parentElement;
+      canvas.height = parent.clientHeight;
+      if (!canvasName.includes("myCanvas")) {
+        canvas.width = parent.clientWidth / 8;
+      }
+      else {
+        canvas.width = parent.clientWidth;
+      }
+    }
 
     function Particle(x, y, directionX, directionY, size, color, opacity) {
       this.x = x;
@@ -119,14 +129,7 @@ function App() {
     init();
     animate();
     window.addEventListener('resize', function () {
-      let parent = canvas.parentElement;
-      canvas.height = parent.clientHeight;
-      if (!canvasName.includes("myCanvas")) {
-        canvas.width = parent.clientWidth / 8;
-      }
-      else {
-        canvas.width = parent.clientWidth;
-      }
+      correctSize(canvas);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       for (let i = 0; i < particleArray.length; i++) {
         particleArray[i].draw();
