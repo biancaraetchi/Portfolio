@@ -24,9 +24,19 @@
   src: url("./Artsystuff/Montserrat-ExtraLight.ttf") format("ttf");
   font-weight: 200;
 }
+@-webkit-keyframes slowlyAppearing {
+  0%, 100% {
+    opacity: 0;
+  }
+}
+@keyframes slowlyAppearing {
+  0%, 100% {
+    opacity: 0;
+  }
+}
 .animate {
-  -webkit-animation: moveUp 1.5s ease-out;
-          animation: moveUp 1.5s ease-out;
+  -webkit-animation: moveUp 2s ease-out;
+          animation: moveUp 2s ease-out;
 }
 
 a {
@@ -34,7 +44,8 @@ a {
 }
 
 h1 {
-  opacity: 1;
+  -webkit-animation: slowlyAppearing 0.25s ease-out;
+          animation: slowlyAppearing 0.25s ease-out;
   color: #ffffff;
   font-size: 5rem;
   text-align: center;

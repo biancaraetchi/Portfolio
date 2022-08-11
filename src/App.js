@@ -33,7 +33,7 @@ function App() {
     var ctx = canvas.getContext("2d");
     let particleArray;
 
-    function correctSize(canvas){
+    function correctSize(canvas) {
       let parent = canvas.parentElement;
       canvas.height = parent.clientHeight;
       if (!canvasName.includes("myCanvas")) {
@@ -140,8 +140,9 @@ function App() {
     var intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("animate");
-          console.log(entry.target);
+          setTimeout(() => {
+            entry.target.classList.add("animate");
+          }, 250);
         }
       })
     }, { threshold: 0 });
@@ -167,7 +168,7 @@ function App() {
         <Routes>
           <Route exact path="/Portfolio/" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles} />} />
           <Route path="/Portfolio/login" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
-          <Route path="/Portfolio/about" element={<About />} />
+          <Route path="/Portfolio/about" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles} />} />
           <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
           <Route path="/Portfolio/cart" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><CartPage lamps={lamps} /></FullCanvas>}></Route>
           <Route path="/Portfolio/payment" element={<FullCanvas url={"/Portfolio/cart"} floatingParticles={floatingParticles}><Payment /></FullCanvas>}></Route>

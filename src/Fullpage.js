@@ -4,10 +4,12 @@ import Welcome from "./Welcome";
 import { useState } from "react";
 import Footer from "./Footer";
 import { useEffect } from "react";
+import About from "./About";
 
 const Fullpage = (props) => {
     const [filterValues, setFilterValues] = useState([false, false, null]);
     const [changedURL, setChangedURL] = useState(0);
+    const [internalPage, setInternalPage] = useState("main");
 
     const changeItems = function (number) {
         props.setTotalItems(props.totalItems + number);
@@ -15,6 +17,9 @@ const Fullpage = (props) => {
     var particleNr = 50;
 
     useEffect(() => {
+        if(window.location.pathname.includes("about")){
+            setInternalPage("about");
+        }
         let container = document.getElementsByClassName("container")[0];
         let observer = new ResizeObserver((entries) => {
             let element = entries[0];
@@ -25,16 +30,16 @@ const Fullpage = (props) => {
         observer.observe(mainContent[0]);
         props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
         props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
-    }, [changedURL]);
+    }, [changedURL, internalPage]);
 
     return (
         <div className="Fullpage">
             <Welcome floatingParticles={props.floatingParticles} />
 
-            <Homebar filterValues={setFilterValues} totalItems={props.totalItems} />
+            <Homebar setInternalPage = {setInternalPage} filterValues={setFilterValues} totalItems={props.totalItems} />
             <div className="container">
                 <canvas id="canvas1" ></canvas>
-                <MainContent lamps={props.lamps} filterValues={filterValues} setTotalItems={changeItems} totalItems={props.totalItems} />
+                {internalPage.includes("about") ? <About setInternalPage = {setInternalPage}/> : <MainContent lamps={props.lamps} filterValues={filterValues} setTotalItems={changeItems} totalItems={props.totalItems} />}
                 <canvas id="canvas2" ></canvas>
             </div>
             <Footer />

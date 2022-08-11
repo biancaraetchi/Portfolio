@@ -23,7 +23,7 @@ const Homebar = (props) => {
         <div className="Homebar">
             <i className="icon" id="hamburgerMenu" onClick={rotateMenu}></i>
             <ul>
-                <li><Link to='/Portfolio/about'>About</Link></li>
+                <li><Link to='/Portfolio/about' onClick={() => {props.setInternalPage("about")}}>About</Link></li>
                 <li><Link to='/Portfolio/login'>Login</Link></li>
             </ul>
             <Cart totalItems={props.totalItems} />
