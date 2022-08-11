@@ -7,10 +7,14 @@
   font-weight: 200;
 }
 
-
+@keyframes slowlyAppearing {
+  0%, 100%{
+    opacity: 0;
+  }
+}
 
 .animate {
-  animation:moveUp 1.5s ease-out;
+  animation:moveUp 2s ease-out;
 }
 
 a {
@@ -18,7 +22,7 @@ a {
 }
 
 h1 {
-  opacity:1;
+  animation: slowlyAppearing 0.250s ease-out;
   color: map-get($colors, "lightest");
   font-size: 5rem;
   text-align: center;

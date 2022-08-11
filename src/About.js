@@ -1,8 +1,10 @@
+import './About.css';
 
-const About = () => {
+const About = ({setInternalPage}) => {
+    setInternalPage("about");
     return ( 
-        <div className="About">
-            
+        <div className="mainContent">
+            <h2>About the project : to be continued</h2>
         </div>
      );
 }
