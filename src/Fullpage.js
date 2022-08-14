@@ -26,7 +26,9 @@ const Fullpage = (props) => {
             container.style.overflow = "hidden";
         })
         let mainContent = document.getElementsByClassName("mainContent");
+        let whatever = document.getElementsByClassName("whatever");
         observer.observe(mainContent[0]);
+        // observer.observe(whatever[0]);
         props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
         props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
     }, [changedURL]);

@@ -1,8 +1,8 @@
 import './About.css';
 
-const About = ({...props}) => {
+const About = () => {
     return (
-        <div className="mainContent">
+        <div className="whatever">
             <h2>About the project : to be continued</h2>
         </div>
     );
