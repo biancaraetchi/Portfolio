@@ -17,4 +17,9 @@
     top: 0px;
     opacity: 1;
   }
+}
+.About {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }/*# sourceMappingURL=About.css.map */
