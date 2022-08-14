@@ -1,10 +1,9 @@
-import MainContent from "./MainContent";
 import Homebar from "./Homebar";
 import Welcome from "./Welcome";
 import { useState } from "react";
 import Footer from "./Footer";
+import React from "react";
 import { useEffect } from "react";
-import About from "./About";
 
 const Fullpage = (props) => {
     const [filterValues, setFilterValues] = useState([false, false, null]);
@@ -30,8 +29,7 @@ const Fullpage = (props) => {
         observer.observe(mainContent[0]);
         props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
         props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
-    }, [changedURL, internalPage]);
-
+    }, [changedURL]);
     return (
         <div className="Fullpage">
             <Welcome floatingParticles={props.floatingParticles} />
@@ -39,7 +37,7 @@ const Fullpage = (props) => {
             <Homebar setInternalPage = {setInternalPage} filterValues={setFilterValues} totalItems={props.totalItems} />
             <div className="container">
                 <canvas id="canvas1" ></canvas>
-                {internalPage.includes("about") ? <About setInternalPage = {setInternalPage}/> : <MainContent lamps={props.lamps} filterValues={filterValues} setTotalItems={changeItems} totalItems={props.totalItems} />}
+                {React.cloneElement(props.children, {lamps:props.lamps, filterValues:filterValues, setTotalItems:changeItems ,totalItems:props.totalItems})}
                 <canvas id="canvas2" ></canvas>
             </div>
             <Footer />

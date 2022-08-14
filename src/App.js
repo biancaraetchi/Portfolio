@@ -10,7 +10,7 @@ import CartPage from './CartPage';
 import { useState } from 'react';
 import Payment from './Payment';
 import { useEffect } from 'react';
-import { isVisible } from '@testing-library/user-event/dist/utils';
+import MainContent from './MainContent';
 
 function App() {
   const [lamps, setLamps] = useState([
@@ -166,9 +166,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route exact path="/Portfolio/" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles} />} />
+          <Route exact path="/Portfolio/" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles}><MainContent/></Fullpage>} />
           <Route path="/Portfolio/login" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><Login /> </FullCanvas>} />
-          <Route path="/Portfolio/about" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles} />} />
+          <Route path="/Portfolio/about" element={<Fullpage setTotalItems={setTotalItems} totalItems={totalItems} lamps={lamps} floatingParticles={floatingParticles}><About/></Fullpage>} />
           <Route path="/Portfolio/signup" element={<FullCanvas url={"/Portfolio/login"} floatingParticles={floatingParticles}><Signup /> </FullCanvas>} />
           <Route path="/Portfolio/cart" element={<FullCanvas url={"/Portfolio/"} floatingParticles={floatingParticles}><CartPage lamps={lamps} /></FullCanvas>}></Route>
           <Route path="/Portfolio/payment" element={<FullCanvas url={"/Portfolio/cart"} floatingParticles={floatingParticles}><Payment /></FullCanvas>}></Route>
