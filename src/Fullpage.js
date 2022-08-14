@@ -22,8 +22,8 @@ const Fullpage = (props) => {
         let container = document.getElementsByClassName("container")[0];
         let observer = new ResizeObserver((entries) => {
             let element = entries[0];
+            console.log(element.target.className)
             if (element.contentRect.height === 0) {
-                console.log("change")
                 if (element.target.className.includes("About")) {
                     switchToHome();
                 }
@@ -32,12 +32,8 @@ const Fullpage = (props) => {
                 }
             }
             else {
-                if (element.target.className.includes("About")) {
-                    container.style.height = element.contentRect.height + "px";
-                }
-                else {
-                    container.style.height = element.contentRect.height + 100 + "px";
-                }
+                container.style.height = element.contentRect.height + 100 + "px";
+                container.style.height = element.contentRect.height + 100 + "px";
                 container.style.overflow = "hidden";
             }
         })
