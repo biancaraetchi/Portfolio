@@ -16,19 +16,49 @@ const Fullpage = (props) => {
     var particleNr = 50;
 
     useEffect(() => {
-        if(window.location.pathname.includes("about")){
+        if (window.location.pathname.includes("about")) {
             setInternalPage("about");
         }
         let container = document.getElementsByClassName("container")[0];
         let observer = new ResizeObserver((entries) => {
             let element = entries[0];
-            container.style.height = element.contentRect.height+100 + "px";
-            container.style.overflow = "hidden";
+            if (element.contentRect.height === 0) {
+                console.log("change")
+                if (element.target.className.includes("About")) {
+                    switchToHome();
+                }
+                else {
+                    switchToAbout();
+                }
+            }
+            else {
+                if (element.target.className.includes("About")) {
+                    container.style.height = element.contentRect.height + "px";
+                }
+                else {
+                    container.style.height = element.contentRect.height + 100 + "px";
+                }
+                container.style.overflow = "hidden";
+            }
         })
         let mainContent = document.getElementsByClassName("mainContent");
-        let whatever = document.getElementsByClassName("whatever");
-        observer.observe(mainContent[0]);
-        // observer.observe(whatever[0]);
+        if (mainContent[0] == null) {
+            switchToAbout();
+        }
+        else {
+            switchToHome();
+        }
+        function switchToAbout() {
+            console.log("to About")
+            observer.disconnect();
+            let whatever = document.getElementsByClassName("About");
+            observer.observe(whatever[0]);
+        }
+        function switchToHome() {
+            console.log("to Home")
+            observer.disconnect();
+            observer.observe(mainContent[0]);
+        }
         props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
         props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
     }, [changedURL]);
@@ -36,10 +66,10 @@ const Fullpage = (props) => {
         <div className="Fullpage">
             <Welcome floatingParticles={props.floatingParticles} />
 
-            <Homebar setInternalPage = {setInternalPage} filterValues={setFilterValues} totalItems={props.totalItems} />
+            <Homebar setInternalPage={setInternalPage} filterValues={setFilterValues} totalItems={props.totalItems} />
             <div className="container">
                 <canvas id="canvas1" ></canvas>
-                {React.cloneElement(props.children, {lamps:props.lamps, filterValues:filterValues, setTotalItems:changeItems ,totalItems:props.totalItems})}
+                {React.cloneElement(props.children, { lamps: props.lamps, filterValues: filterValues, setTotalItems: changeItems, totalItems: props.totalItems })}
                 <canvas id="canvas2" ></canvas>
             </div>
             <Footer />
