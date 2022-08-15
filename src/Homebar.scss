@@ -19,7 +19,10 @@ a{
     box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     font-size: 1.5rem;
     @media (max-width:400px){
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+    @media (max-width:375px){
+        font-size: 1.1rem;
     }
     .icon{
         background-image: url('./Artsystuff/Hamburger\ menu.png');
@@ -52,6 +55,9 @@ a{
         
         li {
             padding: 1.3rem;
+            @media(max-width:400px){
+                padding: 0.8rem;
+            }
             
             a{
                 color:black;
