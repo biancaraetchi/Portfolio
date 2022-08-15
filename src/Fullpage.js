@@ -22,7 +22,6 @@ const Fullpage = (props) => {
         let container = document.getElementsByClassName("container")[0];
         let observer = new ResizeObserver((entries) => {
             let element = entries[0];
-            console.log(element.target.className)
             if (element.contentRect.height === 0) {
                 if (element.target.className.includes("About")) {
                     switchToHome();
@@ -45,15 +44,21 @@ const Fullpage = (props) => {
             switchToHome();
         }
         function switchToAbout() {
-            console.log("to About")
             observer.disconnect();
             let whatever = document.getElementsByClassName("About");
+            if (checkExistence(whatever[0])){
             observer.observe(whatever[0]);
+            }
         }
         function switchToHome() {
-            console.log("to Home")
             observer.disconnect();
-            observer.observe(mainContent[0]);
+            if(checkExistence(mainContent[0])){
+            observer.observe(mainContent[0]);}
+
+
+        }
+        function checkExistence(element) {
+            return element != null;
         }
         props.floatingParticles(setChangedURL, "canvas1", particleNr, 0, 0);
         props.floatingParticles(setChangedURL, "canvas2", particleNr, 0, 0);
