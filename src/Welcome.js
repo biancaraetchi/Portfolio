@@ -49,25 +49,28 @@ const Welcome = (props) => {
 
     useEffect(() => {
         if (matchMedia('(pointer:coarse)').matches) {
-            console.log("Mobile")
-            let toDelete = document.querySelector(".particle");
-            toDelete.remove();
-            toDelete = document.querySelector(".content");
-            toDelete.remove();
-            toDelete = document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
-            let toChange = document.querySelector(".background");
-            document.querySelector("h1").style.color = "black";
-            toChange.style.backgroundImage = "url('temporary-background.png')";
-            toChange.style.backgroundSize = "cover";
-            toChange.style.backgroundPosition = "center";
-            toChange.style.backgroundColor = "transparent";
-            document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+            changetoLightMode();
         }
         else {
             props.floatingParticles(setChangedURL, "myCanvas", 50, 1, 1)
         }
     }, []);
 
+    function changetoLightMode(){
+        let toDelete = document.querySelector(".particle");
+        toDelete.remove();
+        toDelete = document.querySelector(".content");
+        toDelete.remove();
+        toDelete = document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+        let toChange = document.querySelector(".background");
+        document.querySelector("h1").style.color = "black";
+        toChange.style.backgroundImage = "url('temporary-background.png')";
+        toChange.style.backgroundSize = "cover";
+        toChange.style.backgroundPosition = "10%";
+        console.log(toChange.style.backgroundPosition);
+        toChange.style.backgroundColor = "transparent";
+        document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+    }
 
     return (
         <div className="Welcome" onMouseMove={handleHover}>
