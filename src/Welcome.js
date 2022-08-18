@@ -57,7 +57,7 @@ const Welcome = (props) => {
             toDelete = document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
             let toChange = document.querySelector(".background");
             document.querySelector("h1").style.color = "black";
-            toChange.style.backgroundImage = "url('temporary-background.jpg')";
+            toChange.style.backgroundImage = "url('temporary-background.png')";
             toChange.style.backgroundSize = "cover";
             toChange.style.backgroundPosition = "center";
             toChange.style.backgroundColor = "transparent";
