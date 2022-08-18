@@ -95,7 +95,7 @@ function App() {
       for (let i = 0; i < particleNr; i++) {
         let directionX = (Math.random() * .6) - 0.3;
         let directionY = (Math.random() * .4) - 0.2;
-        let size
+        let size;
         if (ifBig === 1) {
           size = (Math.random() + 0.5) * 100;
         }

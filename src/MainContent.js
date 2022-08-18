@@ -115,7 +115,7 @@ const MainContent = (props) => {
                     }
 
                     return (
-                        <div key={lamp.id} style={cardDisplay}>
+                        cardDisplay.display.includes("block") && <div key={lamp.id} style={cardDisplay}>
                             {
                                 <div className="card">
                                     <div className="filler">
