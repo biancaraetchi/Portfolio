@@ -10,37 +10,65 @@ const Welcome = (props) => {
     var [number, setNumber] = useState(0);
 
     const handleHover = (e) => {
-        setTimeout(function () {
-            setX(e.pageX);
-            setY(e.pageY);
+        if (matchMedia('(pointer:coarse)').matches) {
+            // let toDelete = document.querySelector(".particle");
+            // toDelete.remove();
+            // let toCopy = document.querySelector(".content").cloneNode(true);
+            // toDelete = document.querySelector(".background");
+            // document.querySelector(".Welcome").replaceChild(toCopy, toDelete);
+        }
+        else {
+            setTimeout(function () {
+                setX(e.pageX);
+                setY(e.pageY);
 
-            const variable = document.querySelector(".content");
-            let property = window.getComputedStyle(variable, null).getPropertyValue("-webkit-mask-size").replace("px", "");
-            property = property / 2;
-            let text = (X - property).toString() + "px " + (Y - property).toString() + "px";
-            variable.style['-webkit-mask-position'] = text;
-        }, 50);
+                const variable = document.querySelector(".content");
+                let property = window.getComputedStyle(variable, null).getPropertyValue("-webkit-mask-size").replace("px", "");
+                property = property / 2;
+                let text = (X - property).toString() + "px " + (Y - property).toString() + "px";
+                variable.style['-webkit-mask-position'] = text;
+            }, 50);
 
-        setTimeout(() => {
-            var left = X.toString() + "px";
-            var top = Y.toString() + "px";
-            document.querySelector(".particle").style.transform = "translate(" + left + "," + top + ")";
-
-            var object = document.createElement("div");
-            object.className = "trail";
-            object.id = number;
-            setNumber(number + 1);
-            object.style.transform = "translate(" + left + "," + top + ")";
-            document.querySelector(".Welcome").appendChild(object);
             setTimeout(() => {
-                object.remove();
-            }, 1000);
-        }, 100);
+                var left = X.toString() + "px";
+                var top = Y.toString() + "px";
+                document.querySelector(".particle").style.transform = "translate(" + left + "," + top + ")";
+
+                var object = document.createElement("div");
+                object.className = "trail";
+                object.id = number;
+                setNumber(number + 1);
+                object.style.transform = "translate(" + left + "," + top + ")";
+                document.querySelector(".Welcome").appendChild(object);
+                setTimeout(() => {
+                    object.remove();
+                }, 1000);
+            }, 100);
+        }
     }
 
-    useEffect(() => props.floatingParticles(setChangedURL, "myCanvas", 50, 1, 1), []);
+    useEffect(() => {
+        if (matchMedia('(pointer:coarse)').matches) {
+            console.log("Mobile")
+            let toDelete = document.querySelector(".particle");
+            toDelete.remove();
+            toDelete = document.querySelector(".content");
+            toDelete.remove();
+            toDelete = document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+            let toChange = document.querySelector(".background");
+            document.querySelector("h1").style.color = "black";
+            toChange.style.backgroundImage = "url('temporary-background.jpg')";
+            toChange.style.backgroundSize = "cover";
+            toChange.style.backgroundPosition = "center";
+            toChange.style.backgroundColor = "transparent";
+            document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+        }
+        else {
+            props.floatingParticles(setChangedURL, "myCanvas", 50, 1, 1)
+        }
+    }, []);
 
-    
+
     return (
         <div className="Welcome" onMouseMove={handleHover}>
             <img id="whiteImage" src={whiteSparkle} alt="wtf"></img>

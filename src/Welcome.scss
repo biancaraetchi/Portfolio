@@ -111,6 +111,9 @@ h1 {
     width: inherit;
     height: inherit;
     position: relative;
+    //background-image: url("/public/temporary-background.jpg");
+    // background-size:cover;
+    // background-position: center;
     background-color: map-get($colors, "darkest");
     @include flex-center();
     h1{
