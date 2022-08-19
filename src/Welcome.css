@@ -194,6 +194,7 @@ h1 {
   box-shadow: 0 0 10px 2px #ffffff, 0 0 10px 2px #FCF306;
 }
 .Welcome .background {
+  transition: background-color 1s;
   width: inherit;
   height: inherit;
   position: relative;
@@ -293,4 +294,28 @@ h1 {
   top: 50%;
   left: -25%;
   right: 25px;
+}
+
+.containerChangeMode .changeMode {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+}
+.containerChangeMode .changeMode:hover {
+  cursor: pointer;
+}
+.containerChangeMode .changeMode:nth-child(1) {
+  top: 100px;
+  left: 150px;
+}
+.containerChangeMode .changeMode:nth-child(2) {
+  top: 250px;
+  right: 400px;
+}
+.containerChangeMode .changeMode:nth-child(3) {
+  bottom: 200px;
+  left: 550px;
 }/*# sourceMappingURL=Welcome.css.map */
