@@ -4,47 +4,37 @@ import whiteSparkle from './Artsystuff/whiteSparkle.png';
 import yellowSparkle from './Artsystuff/yellowSparkle.png';
 
 const Welcome = (props) => {
-    const [X, setX] = useState(0);
-    const [Y, setY] = useState(0);
+    //const [X, setX] = useState(0);
+    //const [Y, setY] = useState(0);
     const [changedURL, setChangedURL] = useState(0);
     var [number, setNumber] = useState(0);
 
     const handleHover = (e) => {
-        if (matchMedia('(pointer:coarse)').matches) {
-            // let toDelete = document.querySelector(".particle");
-            // toDelete.remove();
-            // let toCopy = document.querySelector(".content").cloneNode(true);
-            // toDelete = document.querySelector(".background");
-            // document.querySelector(".Welcome").replaceChild(toCopy, toDelete);
-        }
-        else {
-            setTimeout(function () {
-                setX(e.pageX);
-                setY(e.pageY);
+        var X = e.pageX;
+        var Y = e.pageY;
+        setTimeout(function () {
+            const variable = document.querySelector(".content");
+            let property = window.getComputedStyle(variable, null).getPropertyValue("-webkit-mask-size").replace("px", "");
+            property = property / 2;
+            let text = (X - property).toString() + "px " + (Y - property).toString() + "px";
+            variable.style['-webkit-mask-position'] = text;
+        }, 50);
 
-                const variable = document.querySelector(".content");
-                let property = window.getComputedStyle(variable, null).getPropertyValue("-webkit-mask-size").replace("px", "");
-                property = property / 2;
-                let text = (X - property).toString() + "px " + (Y - property).toString() + "px";
-                variable.style['-webkit-mask-position'] = text;
-            }, 50);
+        setTimeout(() => {
+            var left = X.toString() + "px";
+            var top = Y.toString() + "px";
+            document.querySelector(".particle").style.transform = "translate(" + left + "," + top + ")";
 
+            var object = document.createElement("div");
+            object.className = "trail";
+            object.id = number;
+            setNumber(number + 1);
+            object.style.transform = "translate(" + left + "," + top + ")";
+            document.querySelector(".Welcome").appendChild(object);
             setTimeout(() => {
-                var left = X.toString() + "px";
-                var top = Y.toString() + "px";
-                document.querySelector(".particle").style.transform = "translate(" + left + "," + top + ")";
-
-                var object = document.createElement("div");
-                object.className = "trail";
-                object.id = number;
-                setNumber(number + 1);
-                object.style.transform = "translate(" + left + "," + top + ")";
-                document.querySelector(".Welcome").appendChild(object);
-                setTimeout(() => {
-                    object.remove();
-                }, 1000);
-            }, 100);
-        }
+                object.remove();
+            }, 1000);
+        }, 100);
     }
 
     useEffect(() => {
@@ -52,28 +42,33 @@ const Welcome = (props) => {
             changetoLightMode();
         }
         else {
+            document.querySelector(".Welcome").addEventListener("mousemove", handleHover);
+            let switches = document.querySelectorAll(".containerChangeMode");
+            for (let i = 0; i < switches.length; i++) {
+                switches[i].addEventListener("click", () => changetoLightMode());
+            }
             props.floatingParticles(setChangedURL, "myCanvas", 50, 1, 1)
         }
     }, []);
 
-    function changetoLightMode(){
+    function changetoLightMode() {
         let toDelete = document.querySelector(".particle");
         toDelete.remove();
         toDelete = document.querySelector(".content");
         toDelete.remove();
-        toDelete = document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+        // console.log(document.querySelector(".Welcome"))
+        document.querySelector(".Welcome").removeEventListener("mousemove", handleHover);
         let toChange = document.querySelector(".background");
         document.querySelector("h1").style.color = "black";
+        toChange.style.backgroundColor = "transparent";
         toChange.style.backgroundImage = "url('temporary-background.png')";
         toChange.style.backgroundSize = "cover";
         toChange.style.backgroundPosition = "10%";
-        console.log(toChange.style.backgroundPosition);
-        toChange.style.backgroundColor = "transparent";
-        document.querySelector(".Welcome").removeEventListener("onMouseMove", handleHover);
+        document.querySelector(".containerChangeMode").remove();
     }
 
     return (
-        <div className="Welcome" onMouseMove={handleHover}>
+        <div className="Welcome" >
             <img id="whiteImage" src={whiteSparkle} alt="wtf"></img>
             <img id="yellowImage" src={yellowSparkle} alt="wtf"></img>
             <div className="particle">
@@ -84,6 +79,12 @@ const Welcome = (props) => {
                 <div className="content">
                     <h1 className="title">Welcome to <span className='color'>Lamps</span></h1>
                 </div>
+            </div>
+            <div className="containerChangeMode">
+                <div className="changeMode"></div>
+                <div className="changeMode"></div>
+                <div className="changeMode"></div>
+
             </div>
             <canvas id="myCanvas"></canvas>
         </div>
