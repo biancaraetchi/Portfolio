@@ -554,6 +554,10 @@ video {
   --tw-contain-style:  ;
 }
 
+.resize {
+  resize: both;
+}
+
 *{
   margin:0;
   padding:0;
