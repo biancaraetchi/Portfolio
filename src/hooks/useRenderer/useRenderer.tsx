@@ -1,11 +1,9 @@
 import * as THREE from 'three';
+import useWindowSize from '../useWindowSize/useWindowSize';
 
 const useRenderer = (canvas: HTMLCanvasElement) => {
+  const { width, height } = useWindowSize()
   if (canvas) {
-    const sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight
-    }
     //Scene
     const scene = new THREE.Scene()
     const geometry = new THREE.SphereGeometry(3, 64, 64)
@@ -22,13 +20,13 @@ const useRenderer = (canvas: HTMLCanvasElement) => {
     scene.add(light)
 
     //Camera
-    const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100)
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100)
     camera.position.z = 10
     scene.add(camera)
 
     //Renderer
     const renderer = new THREE.WebGLRenderer({ canvas: canvas })
-    renderer.setSize(sizes.width, sizes.height)
+    renderer.setSize(width, height)
     renderer.render(scene, camera)
   }
 }
