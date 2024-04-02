@@ -1,0 +1,237 @@
+@import "./import";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./Artsystuff/Montserrat-ExtraLight.ttf") format("ttf");
+  font-weight: 200;
+}
+
+@keyframes slowlyAppearing {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate {
+  animation: moveUp 2s ease-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  animation: slowlyAppearing 0.250s ease-out;
+  color: map-get($colors, "lightest");
+  font-size: 5rem;
+  text-align: center;
+
+  @media (max-width:400px) {
+    font-size: 4rem;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes pulsing {
+  0% {
+    mask-image: url("./Artsystuff/mask2.png");
+  }
+
+  50% {
+    mask-image: url("./Artsystuff/masktrial.png");
+  }
+
+  100% {
+    mask-image: url("./Artsystuff/mask2.png");
+  }
+}
+
+@keyframes lightpulsing {
+  0% {
+    box-shadow: 0 0 25px 10px map-get($colors, "accent"), 0 0 30px 15px map-get($colors, "lightest");
+  }
+
+  50% {
+    box-shadow: 0 0 10px 5px map-get($colors, "accent"), 0 0 10px 5px map-get($colors, "lightest");
+  }
+
+  100% {
+    box-shadow: 0 0 25px 10px map-get($colors, "accent"), 0 0 30px 15px map-get($colors, "lightest");
+  }
+}
+
+@mixin animation_pulsing($class) {
+  @if $class =="particle" {
+    animation-name: lightpulsing;
+  }
+
+  @if $class =="container" {
+    animation-name: pulsing;
+  }
+
+  animation-duration: 5s;
+  animation-delay: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes magic {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.color {
+  color: map-get($colors, "accent");
+}
+
+.Welcome {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    display: none;
+  }
+
+  canvas {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: transparent;
+  }
+
+  .particle {
+    @include particle-tingz();
+    @include animation_pulsing(particle);
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    .leftover {
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border-radius: 50%;
+      background-color: map-get($colors, "lightest");
+      box-shadow: 0 0 10px 2px map-get($colors, "lightest"), 0 0 10px 2px map-get($colors, "accent");
+    }
+  }
+
+  .background {
+    transition: background-color 1s;
+    width: inherit;
+    height: inherit;
+    position: relative;
+    background-color: map-get($colors, "darkest");
+    @include flex-center();
+
+    h1 {
+      color: white;
+      cursor: default;
+      user-select: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .content {
+      text-align: center;
+      width: inherit;
+      height: inherit;
+      background-image: url("/public/temporary-background.png");
+      background-size: 100% 100%;
+      mask-image: url("./Artsystuff/mask2.png");
+      mask-repeat: no-repeat;
+      mask-position: -10rem -10rem;
+      position: absolute;
+      mask-size: 20rem;
+      will-change: mask-image;
+      @include flex-center();
+      @include animation_pulsing(container);
+
+      h1 {
+        color: map-get($colors, "darkest");
+      }
+    }
+  }
+
+  .trail {
+    @include trail-tingz();
+  }
+
+  .floating {
+    top: 50%;
+    left: 50%;
+    height: 60%;
+    width: 60%;
+    position: absolute;
+
+    &::before {
+      content: '';
+      position: absolute;
+      @include particle-tingz();
+      box-shadow: 0 0 70px 15px map-get($colors, "lightest"), 0 0 50px 15px map-get($colors, "accent");
+      width: 35px;
+      height: 35px;
+      top: 50%;
+      left: -25%;
+      right: 25px;
+    }
+
+    animation: magic 15s infinite;
+  }
+}
+
+.containerChangeMode{
+.changeMode {
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  &:hover{
+    cursor:pointer;
+  }
+
+  &:nth-child(1) {
+    top: 100px;
+    left: 150px;
+  }
+  &:nth-child(2){
+    top:250px;
+    right:400px;
+  }
+
+  &:nth-child(3){
+    bottom:200px;
+    left:550px;
+  }
+}
+}
