@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@-webkit-keyframes moveUp {
+  0% {
+    top: 50px;
+    opacity: 0.2;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+@keyframes moveUp {
+  0% {
+    top: 50px;
+    opacity: 0.2;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+a {
+  padding: 0;
+}
+
+.Homebar {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  height: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+}
+@media (max-width: 400px) {
+  .Homebar {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 375px) {
+  .Homebar {
+    font-size: 1.1rem;
+  }
+}
+.Homebar .icon {
+  background-image: url("./Artsystuff/Hamburger menu.png");
+  background-size: 2.6rem 1.8rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 68px;
+  height: 38px;
+  float: left;
+  display: block;
+  position: relative;
+  left: 20px;
+  top: 11px;
+  transition: transform 0.1s ease-in-out;
+}
+@media (max-width: 400px) {
+  .Homebar .icon {
+    background-size: 2.2rem 1.3rem;
+  }
+}
+.Homebar .icon:hover {
+  cursor: pointer;
+}
+.Homebar ul {
+  float: right;
+  height: inherit;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+}
+.Homebar ul li {
+  padding: 1.3rem;
+}
+@media (max-width: 400px) {
+  .Homebar ul li {
+    padding: 0.8rem;
+  }
+}
+.Homebar ul li a {
+  color: black;
+  background-image: linear-gradient(black, black);
+  background-size: 0% 0.1em;
+  background-position-x: 50%;
+  background-position-y: 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s;
+}
+.Homebar ul li a:hover {
+  background-size: 90% 0.1em;
+}
+.Homebar ul li:last-child {
+  padding-right: 2vw;
+}
+.Homebar ul li:last-child a {
+  color: #FCF306;
+  background-image: linear-gradient(#FCF306, #FCF306);
+}/*# sourceMappingURL=Homebar.css.map */

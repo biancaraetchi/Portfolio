@@ -1,0 +1,34 @@
+@import './variables';
+@import './commonmixins';
+
+.Cart {
+    position: absolute;
+    display: block;
+    padding: 30px;
+    float: right;
+    right: 20px;
+    top: 80px;
+    background-image: url('./Artsystuff/cart.png');
+    background-size: 3rem 3rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: map-get($colors, "lightest");
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1), -2px -2px 7px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s;
+    &:hover{
+        background-color: rgba(map-get($colors, "soft"), 1);
+    }
+    .items {
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        z-index: 4;
+        color: map-get($colors, "accent");
+        top: -15px;
+        right: 5px;
+        font-size: 3vh;
+        text-shadow: 0px 0px 1px rgba(0, 0, 0, 1), 0 0 5px rgba(#FCF306, 0.6);
+    }
+}

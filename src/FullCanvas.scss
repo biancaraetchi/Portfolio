@@ -1,0 +1,54 @@
+@import './import';
+
+@keyframes snap {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+}
+
+.FullCanvas {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+
+    .arrow {
+        width: 60px;
+        height: 60px;
+        background: url("./Artsystuff/arrow.png") no-repeat center;
+        border-radius: 50%;
+        background-size: contain;
+        background-origin: content-box;
+        padding: 10px;
+        position: absolute;
+        top: 4vw;
+        left: 4vw;
+        z-index: 4;
+        background-color: map-get($colors, "lightest");
+        @include shadowPreset;
+
+        &:hover {
+            cursor: pointer;
+            @include coloredShadowPreset;
+            animation: snap 0.8s ease-out;
+
+        }
+    }
+
+    img {
+        display: none;
+    }
+
+    canvas {
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        background-color: map-get($colors, "soft");
+    }
+}
