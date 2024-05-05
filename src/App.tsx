@@ -6,7 +6,6 @@ function App() {
   useRenderer(canvasRef)
 
 
-
   return (
     <>
       <div>
