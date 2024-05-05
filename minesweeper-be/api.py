@@ -8,6 +8,11 @@ app = FastAPI()
 
 @app.get("/")
 def create_game(dims: int = 5, bombs: int = 5):
+  """Endpoint to generate list of bombs in a minesweeper array.
+  
+  dims: dimension of square array
+  bombs: number of bombs in minesweeper array
+  """
   if(bombs > dims*dims):
     return HTTPException(status_code=400, detail="Bad Request; there cannot be more bombs than tiles.")
   result = generate_array(dims, bombs)
